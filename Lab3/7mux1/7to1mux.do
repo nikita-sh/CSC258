@@ -9,7 +9,7 @@ vlib 7to1muxWork
 vlog -timescale 1ns/1ns 7to1mux.v
 
 # Load simulation using mux as the top level simulation module.
-vsim mux
+vsim 7to1mux
 
 # Log all signals and add some signals to waveform window.
 log {/*}
