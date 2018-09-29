@@ -1,0 +1,93 @@
+//Ripple Carry Adder
+
+module rippleCarryAdder(a, b, cin, cout, s);
+	input a;
+	input b;
+	input cin;
+	output cout;
+	output s;
+	
+	wire c1;
+	wire c2;
+	wire c3;
+	
+	fullAdder a0(
+				 .a(a),
+				 .b(b),
+				 .cin(cin),
+				 .cout(c1),
+				 .s(s));
+	
+	fullAdder a1(
+				 .a(),
+				 .b(),
+				 .cin(),
+				 .cout(),
+				 .s());
+	
+	fullAdder a2(
+				 .a(),
+				 .b(),
+				 .cin(),
+				 .cout(),
+				 .s());
+	
+	fullAdder a3(
+				 .a(),
+				 .b(),
+				 .cin(),
+				 .cout(),
+				 .s());
+endmodule
+
+module fullAdder(a, b, cin, cout, s);
+	input a;
+	input b;
+	input cin;
+	output cout;
+	output s;
+	
+	reg out;
+	reg sout;
+	
+	always @(*)
+	begin
+		case ({a,b,cin});
+			3'b000: begin:
+				assign out = 1'b0;
+				assign sout = 1'b0;
+			end	
+			3'b001: begin:
+				assign out = 1'b0;
+				assign sout = 1'b1;
+			end
+			3'b010: begin:
+				assign out = 1'b0;
+				assign sout = 1'b1;
+			end
+			3'b011: begin:
+				assign out = 1'b1;
+				assign sout = 1'b0;
+			end
+			3'b100: begin:
+				assign out = 1'b0;
+				assign sout = 1'b1;
+			3'b101: begin:
+				assign out = 1'b1;
+				assign sout = 1'b0;
+			3'b110: begin:
+				assign out = 1'b1;
+				assign sout = 1'b0;
+			end
+			3'b111: begin:
+				assign out = 1'b1;
+				assign sout = 1'b1;
+			end
+			default: begin:
+				assign out = 1'b0;
+				assign sout = 1'b0;
+		endcase
+	end
+	assign cout = out;
+	assign s = sout;
+endmodule 
