@@ -56,6 +56,6 @@ module fullAdder(a, b, cin, cout, s);
 	output cout;
 	output s;
 	
-	assign cout = (a & b) | (a & c) | (b & c)
-	assign s = (a & ~b & ~cin) | (~a & b & ~cin) | (a & b & cin) | (~a & ~b & cin)
+	assign cout = (a & b) | (a & cin) | (b & cin);
+	assign s = (a & ~b & ~cin) | (~a & b & ~cin) | (a & b & cin) | (~a & ~b & cin);
 endmodule 
