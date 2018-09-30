@@ -1,133 +1,75 @@
-//Arithmetic Logic Unit
+// Arithmetic Logic Unit
 // two data inputs
 
-module alu(a, a1, a2, a3, b, b1, b2, b3, out1, out2, out3, out4, out5, out6, out7, out8);
-	input a;
-	input a1;
-	input a2;
-	input a3;
-	input b;
-	input b1;
-	input b2;
-	input b3;
-	output out1;
-	output out2;
-	output out3;
-	output out4;
-	output out5;
-	output out6;
-	output out7;
-	output out8;
+module alu(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
+	input [7:0] SW;
+	input [2:0] KEY;
+	output [7:0] LEDR;
+	output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	
-	//Add 1
-	reg a1;
+endmodule
+
+module subALU(A, B, func, ALUout);
+	input [3:0] A;
+	input [3:0] B;
+	input [2:0] func;
+	output [7:0] ALUout;
+	
+	//A+1
+	reg [3:0] a1;
 	reg a2;
-	reg a3;
-	reg a4;
-	reg a5;
-	
-	rippleCarryAdder mod0(.a(a), .b(0), .a1(a1), .b1(0), .a2(a2), .b2(0), .a3(a3), .b3(1), .cin(0), .s(a1), .s1(a2), .s2(a3), .s3(a4), .cout(a5));
+	rippleCarryAdder(.A(A), .B(4'b0001), .cin(0), .s(a1), .cout(a2));
 	
 	//A+B
-	reg ab1;
+	reg [3:0] ab1;
 	reg ab2;
-	reg ab3;
-	reg ab4;
-	reg ab5;
+	rippleCarryAdder(.A(A), .B(B), .cin(0), .s(ab1), .cout(ab2));
 	
-	rippleCarryAdder mod1(.a(a), .b(b), .a1(a1), .b1(b1), .a2(a2), .b2(b2), .a3(a3), .b3(b3), .cin(0), .s(ab1), .s1(ab2), .s2(ab3), .s3(ab4), .cout(ab5));
+	//A+B using Verilog
+	reg [3:0] abv;
+	reg abvo;
+	fourBitAdd(.A(A), .B(B), .C(abv), .overflow(abvo));
 	
 	always @(∗)
 	begin
-		case (function)
-			0: begin:
-				assign out1 = a1;
-				assign out2 = a2;
-				assign out3 = a3;
-				assign out4 = a4;
-				assign out5 = a5;
-				assign out6 = 0;
-				assign out7 = 0;
-				assign out8 = 0;
-			end
-			1: begin:
-				assign out1 = ab1;
-				assign out2 = ab2;
-				assign out3 = ab3;
-				assign out4 = ab4;
-				assign out5 = ab5;
-				assign out6 = 0;
-				assign out7 = 0;
-				assign out8 = 0;
-			end
-			2: begin:
-				assign out1 = 0;
-				assign out2 = 0;
-				assign out3 = 0;
-				assign out4 = 0;
-				assign out5 = 0;
-				assign out6 = 0;
-				assign out7 = 0;
-				assign out8 = 0;
-			end
-			3: begin:
-				assign out1 = 0;
-				assign out2 = 0;
-				assign out3 = 0;
-				assign out4 = 0;
-				assign out5 = 0;
-				assign out6 = 0;
-				assign out7 = 0;
-				assign out8 = 0;
-			end
-			4: begin:
-				assign out1 = 0;
-				assign out2 = 0;
-				assign out3 = 0;
-				assign out4 = 0;
-				assign out5 = 0;
-				assign out6 = 0;
-				assign out7 = 0;
-				assign out8 = 0;
-			end
-			5: begin:
-				assign out1 = 0;
-				assign out2 = 0;
-				assign out3 = 0;
-				assign out4 = 0;
-				assign out5 = 0;
-				assign out6 = 0;
-				assign out7 = 0;
-				assign out8 = 0;
-			end
-			default: begin:
-				assign out1 = 0;
-				assign out2 = 0;
-				assign out3 = 0;
-				assign out4 = 0;
-				assign out5 = 0;
-				assign out6 = 0;
-				assign out7 = 0;
-				assign out8 = 0;
-			end
+		case (function ????????)
+			//A + 1
+			0: assign ALUout = {3'b000, a2, a1};
+			//A + B (Using rippleCarryAdder)
+			1: assign ALUout = {3'b000, ab2, ab1};
+			//A + B (Using Verilog arithmetic)
+			2: assign ALUout = {3'b000, abvo, abv};
+			//A XOR B in lower 4 bits, A OR B in higher 4
+			3: assign ALUout = {A | B, A ^ B};
+			//A and B reduction OR
+			4: assign ALUout = {7'b0000000, |(A|B)};
+			//A in leftmost 4 bits, B in rightmost 4 bits 
+			5: assign {A, B};
+			//Display 0
+			default: assign ALUout = 8'b00000000
 		endcase
 	end
+endmodule;
+
+module fourBitAdd(A, B, C, overflow);
+	input [3:0] A;
+	input [3:0] B;
+	output [3:0] C;
+	output overflow;
+	assign {overflow, C} = A+B;
+endmodule 
+
+module func();
+	function func;
+	endfunction
 endmodule
 
-module rippleCarryAdder(a, b, a1, b1, a2, b2, a3, b3, cin, s, s1, s2, s3, cout);
-	input a;
-	input b;
-	input a1;
-	input b1;
-	input a2;
-	input b2;
-	input a3;
-	input b3;
+//Ripple Carry Adder for use in ALU
+module rippleCarryAdder(A, B, cin, s, cout);
+	input [3:0] A;
+	input [3:0] B;
 	input cin;
-	output s;
-	output s1;
-	output s2;
-	output s3;
+	output [3:0] s;
 	output cout;
 	
 	wire c1;
@@ -135,34 +77,35 @@ module rippleCarryAdder(a, b, a1, b1, a2, b2, a3, b3, cin, s, s1, s2, s3, cout);
 	wire c3;
 	
 	fullAdder add(
-				.a(a),
-				.b(b),
+				.a(A[0]),
+				.b(B[0]),
 				.cin(cin),
 				.cout(c1),
-				.s(s));
+				.s(s[0]));
 				
 	fullAdder add1(
-				.a(a1),
-				.b(b1),
+				.a(A[1]),
+				.b(B[1]),
 				.cin(c1),
 				.cout(c2),
-				.s(s1));
+				.s(s[1]));
 				
 	fullAdder add2(
-				.a(a2),
-				.b(b2),
+				.a(A[2]),
+				.b(B[2]),
 				.cin(c2),
 				.cout(c3),
-				.s(s2));
+				.s(s[2]));
 				
 	fullAdder add3(
-				.a(a3),
-				.b(b3),
+				.a(A[3]),
+				.b(B[3]),
 				.cin(c3),
 				.cout(cout),
-				.s(s3));
+				.s(s[3]));
 endmodule
 
+//Full Adder for use in RippleCarryAdder
 module fullAdder(a, b, cin, cout, s);
 	input a;
 	input b;
@@ -174,6 +117,7 @@ module fullAdder(a, b, cin, cout, s);
 	assign s = (a & ~b & ~cin) | (~a & b & ~cin) | (a & b & cin) | (~a & ~b & cin);
 endmodule 
 
+//Seven segment display decoder for use in ALU output
 module sevenSegDecoder(SW, HEX0);
 	input [9:0] SW;
 	output [6:0] HEX0;

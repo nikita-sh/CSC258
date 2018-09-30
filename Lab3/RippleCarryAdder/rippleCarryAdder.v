@@ -1,52 +1,43 @@
 //Ripple Carry Adder
-
-module rippleCarryAdder(a, b, a1, b1, a2, b2, a3, b3, cin, s, s1, s2, s3, cout);
-	input a;
-	input b;
-	input a1;
-	input b1;
-	input a2;
-	input b2;
-	input a3;
-	input b3;
-	input cin;
-	output s;
-	output s1;
-	output s2;
-	output s3;
-	output cout;
+module rippleCarryAdder(SW, LEDR);
+	input [9:0] SW;
+	output [9:0] LEDR;
+	
+	//SW[7:4] = A
+	//SW[3:0] = B
+	//SW[8] Carry in bit
 	
 	wire c1;
 	wire c2;
 	wire c3;
 	
 	fullAdder add(
-				.a(a),
-				.b(b),
-				.cin(cin),
+				.a(SW[4]),
+				.b(SW[0]),
+				.cin(SW[8]),
 				.cout(c1),
-				.s(s));
+				.s(LEDR[0]));
 				
 	fullAdder add1(
-				.a(a1),
-				.b(b1),
+				.a(SW[5]),
+				.b(SW[1]),
 				.cin(c1),
 				.cout(c2),
-				.s(s1));
+				.s(LEDR[1]));
 				
 	fullAdder add2(
-				.a(a2),
-				.b(b2),
+				.a(SW[6]),
+				.b(SW[2]),
 				.cin(c2),
 				.cout(c3),
-				.s(s2));
+				.s(LEDR[2]));
 				
 	fullAdder add3(
-				.a(a3),
-				.b(b3),
+				.a(SW[7]),
+				.b(SW[3]),
 				.cin(c3),
-				.cout(cout),
-				.s(s3));
+				.cout(LEDR[4]),
+				.s(LEDR[3]));
 endmodule
 
 module fullAdder(a, b, cin, cout, s);
