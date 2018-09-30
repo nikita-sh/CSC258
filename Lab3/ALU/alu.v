@@ -7,6 +7,18 @@ module alu(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	output [7:0] LEDR;
 	output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	
+	wire [7:0] hex1;
+	
+	subALU alu0(.A(SW[7:4]), .B(SW[3:0]), .func(KEY[2:0]), .ALUout(hex1));
+	
+	assign LEDR[7:0] = hex1[7:0];
+	
+	sevenSegDecoder h1(.SW(10'b0000000000), .HEX0(HEX1));
+	sevenSegDecoder h3(.SW(10'b0000000000), .HEX0(HEX3));
+	sevenSegDecoder ha(.SW({6'b000000, SW[7:4]}), .HEX0(HEX2));
+	sevenSegDecoder hb(.SW({6'b000000, SW[3:0]}), .HEX0(HEX0));
+	sevenSegDecoder h4alu(.SW({hex1[0:3]}), .HEX0(HEX4));
+	sevenSegDecoder h5alu(.SW({hex1[7:4]}), .HEX0(HEX5));
 endmodule
 
 module subALU(A, B, func, ALUout);
@@ -18,33 +30,33 @@ module subALU(A, B, func, ALUout);
 	//A+1
 	reg [3:0] a1;
 	reg a2;
-	rippleCarryAdder(.A(A), .B(4'b0001), .cin(0), .s(a1), .cout(a2));
+	rippleCarryAdder a1(.A(A), .B(4'b0001), .cin(0), .s(a1), .cout(a2));
 	
 	//A+B
 	reg [3:0] ab1;
 	reg ab2;
-	rippleCarryAdder(.A(A), .B(B), .cin(0), .s(ab1), .cout(ab2));
+	rippleCarryAdder a2(.A(A), .B(B), .cin(0), .s(ab1), .cout(ab2));
 	
 	//A+B using Verilog
 	reg [3:0] abv;
 	reg abvo;
-	fourBitAdd(.A(A), .B(B), .C(abv), .overflow(abvo));
+	fourBitAdd a3(.A(A), .B(B), .C(abv), .overflow(abvo));
 	
 	always @(∗)
 	begin
-		case (function ????????)
+		case (func)
 			//A + 1
-			0: assign ALUout = {3'b000, a2, a1};
+			3'b000: assign ALUout = {3'b000, a2, a1};
 			//A + B (Using rippleCarryAdder)
-			1: assign ALUout = {3'b000, ab2, ab1};
+			3'b001: assign ALUout = {3'b000, ab2, ab1};
 			//A + B (Using Verilog arithmetic)
-			2: assign ALUout = {3'b000, abvo, abv};
+			3'b010: assign ALUout = {3'b000, abvo, abv};
 			//A XOR B in lower 4 bits, A OR B in higher 4
-			3: assign ALUout = {A | B, A ^ B};
+			3'b011: assign ALUout = {A | B, A ^ B};
 			//A and B reduction OR
-			4: assign ALUout = {7'b0000000, |(A|B)};
+			3'b100: assign ALUout = {7'b0000000, |(A|B)};
 			//A in leftmost 4 bits, B in rightmost 4 bits 
-			5: assign {A, B};
+			3'b101: assign {A, B};
 			//Display 0
 			default: assign ALUout = 8'b00000000
 		endcase
@@ -58,11 +70,6 @@ module fourBitAdd(A, B, C, overflow);
 	output overflow;
 	assign {overflow, C} = A+B;
 endmodule 
-
-module func();
-	function func;
-	endfunction
-endmodule
 
 //Ripple Carry Adder for use in ALU
 module rippleCarryAdder(A, B, cin, s, cout);
