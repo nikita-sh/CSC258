@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/h/u5/c7/05/shumeik2/CSC258/Lab3/7mux1
 vmux7to1
-!s110 1538257384
+!s110 1538266945
 !i10b 1
 !s100 URn^S<nYV`>]bAGNITVSX0
 In^zDQ4?K8EX5S2dg]?z??0
@@ -23,7 +23,7 @@ OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1538257383.000000
+!s108 1538266944.000000
 !s107 mux7to1.v|
 !s90 -reportprogress|300|-timescale|1ns/1ns|mux7to1.v|
 !i113 1

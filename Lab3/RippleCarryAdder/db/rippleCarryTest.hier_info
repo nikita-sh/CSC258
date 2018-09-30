@@ -1,0 +1,119 @@
+|rippleCarryTest
+LEDR[0] <= rippleCarryAdder:comb_3.port9
+LEDR[1] <= rippleCarryAdder:comb_3.port10
+LEDR[2] <= rippleCarryAdder:comb_3.port11
+LEDR[3] <= rippleCarryAdder:comb_3.port12
+LEDR[4] <= rippleCarryAdder:comb_3.port13
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => SW[8].IN1
+SW[9] => ~NO_FANOUT~
+
+
+|rippleCarryTest|rippleCarryAdder:comb_3
+a => a.IN1
+b => b.IN1
+a1 => a1.IN1
+b1 => b1.IN1
+a2 => a2.IN1
+b2 => b2.IN1
+a3 => a3.IN1
+b3 => b3.IN1
+cin => cin.IN1
+s <= fullAdder:add.s
+s1 <= fullAdder:add1.s
+s2 <= fullAdder:add2.s
+s3 <= fullAdder:add3.s
+cout <= fullAdder:add3.cout
+
+
+|rippleCarryTest|rippleCarryAdder:comb_3|fullAdder:add
+a => cout.IN0
+a => cout.IN0
+a => s.IN0
+a => s.IN0
+a => s.IN0
+b => cout.IN1
+b => cout.IN0
+b => s.IN1
+b => s.IN1
+b => s.IN1
+cin => cout.IN1
+cin => cout.IN1
+cin => s.IN1
+cin => s.IN1
+cin => s.IN1
+cin => s.IN1
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rippleCarryTest|rippleCarryAdder:comb_3|fullAdder:add1
+a => cout.IN0
+a => cout.IN0
+a => s.IN0
+a => s.IN0
+a => s.IN0
+b => cout.IN1
+b => cout.IN0
+b => s.IN1
+b => s.IN1
+b => s.IN1
+cin => cout.IN1
+cin => cout.IN1
+cin => s.IN1
+cin => s.IN1
+cin => s.IN1
+cin => s.IN1
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rippleCarryTest|rippleCarryAdder:comb_3|fullAdder:add2
+a => cout.IN0
+a => cout.IN0
+a => s.IN0
+a => s.IN0
+a => s.IN0
+b => cout.IN1
+b => cout.IN0
+b => s.IN1
+b => s.IN1
+b => s.IN1
+cin => cout.IN1
+cin => cout.IN1
+cin => s.IN1
+cin => s.IN1
+cin => s.IN1
+cin => s.IN1
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rippleCarryTest|rippleCarryAdder:comb_3|fullAdder:add3
+a => cout.IN0
+a => cout.IN0
+a => s.IN0
+a => s.IN0
+a => s.IN0
+b => cout.IN1
+b => cout.IN0
+b => s.IN1
+b => s.IN1
+b => s.IN1
+cin => cout.IN1
+cin => cout.IN1
+cin => s.IN1
+cin => s.IN1
+cin => s.IN1
+cin => s.IN1
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
