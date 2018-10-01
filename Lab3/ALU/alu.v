@@ -28,18 +28,19 @@ module subALU(A, B, func, ALUout);
 	output reg [7:0] ALUout;
 	
 	//A+1
-	reg [3:0] addA1;
-	reg addA2;
+	wire [3:0] addA1;
+	wire addA2;
 	rippleCarryAdder add1(.A(A), .B(4'b0001), .cin(0), .s(addA1), .cout(addA2));
 	
 	//A+B
-	reg [3:0] ab1;
-	reg ab2;
+	wire [3:0] ab1;
+	wire ab2;
 	rippleCarryAdder add2(.A(A), .B(B), .cin(0), .s(ab1), .cout(ab2));
 	
+	
 	//A+B using Verilog
-	reg [3:0] abv;
-	reg abvo;
+	wire [3:0] abv;
+	wire abvo;
 	fourBitAdd add3(.X(A), .Y(B), .C(abv), .overflow(abvo));
 	
 	always @(*)

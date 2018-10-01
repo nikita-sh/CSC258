@@ -1,6 +1,6 @@
 Analysis & Synthesis report for alu
-Sun Sep 30 21:54:27 2018
-Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+Sun Sep 30 22:40:10 2018
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
 ---------------------
@@ -10,15 +10,30 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
-  6. Analysis & Synthesis Suppressed Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Port Connectivity Checks: "sevenSegDecoder:h5alu"
+ 11. Port Connectivity Checks: "sevenSegDecoder:h4alu"
+ 12. Port Connectivity Checks: "sevenSegDecoder:hb"
+ 13. Port Connectivity Checks: "sevenSegDecoder:ha"
+ 14. Port Connectivity Checks: "sevenSegDecoder:h3"
+ 15. Port Connectivity Checks: "sevenSegDecoder:h1"
+ 16. Port Connectivity Checks: "subALU:alu0|rippleCarryAdder:add2"
+ 17. Port Connectivity Checks: "subALU:alu0|rippleCarryAdder:add1"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2017  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -26,31 +41,35 @@ functions, and any output files from any of the foregoing
 associated documentation or information are expressly subject 
 to the terms and conditions of the Intel Program License 
 Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel MegaCore Function License Agreement, or other 
-applicable license agreement, including, without limitation, 
-that your use is for the sole purpose of programming logic 
-devices manufactured by Intel and sold by Intel or its 
-authorized distributors.  Please refer to the applicable 
-agreement for further details.
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Sun Sep 30 21:54:27 2018           ;
-; Quartus Prime Version       ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
-; Revision Name               ; alu                                         ;
-; Top-level Entity Name       ; alu                                         ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Sep 30 22:40:10 2018       ;
+; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
+; Revision Name                   ; alu                                         ;
+; Top-level Entity Name           ; alu                                         ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 61                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -62,13 +81,13 @@ agreement for further details.
 ; Top-level entity name                                                           ; alu                ; alu                ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
-; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
 ; Enable compact report table                                                     ; Off                ; Off                ;
 ; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
 ; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
 ; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
 ; Preserve fewer node names                                                       ; On                 ; On                 ;
-; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
 ; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
 ; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                                        ; Auto               ; Auto               ;
@@ -119,7 +138,7 @@ agreement for further details.
 ; Report Connectivity Checks                                                      ; On                 ; On                 ;
 ; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
 ; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
-; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
 ; HDL message level                                                               ; Level2             ; Level2             ;
 ; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
 ; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
@@ -145,8 +164,8 @@ agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -156,39 +175,255 @@ agreement for further details.
 +----------------------------+-------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                       ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                   ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------+---------+
+; alu.v                            ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 41           ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 62           ;
+;     -- 7 input functions                    ; 4            ;
+;     -- 6 input functions                    ; 15           ;
+;     -- 5 input functions                    ; 11           ;
+;     -- 4 input functions                    ; 19           ;
+;     -- <=3 input functions                  ; 13           ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 61           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; KEY[1]~input ;
+; Maximum fan-out                             ; 21           ;
+; Total fan-out                               ; 382          ;
+; Average fan-out                             ; 2.08         ;
++---------------------------------------------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                              ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                   ; Entity Name      ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------+------------------+--------------+
+; |alu                          ; 62 (0)              ; 0 (0)                     ; 0                 ; 0          ; 61   ; 0            ; |alu                                                  ; alu              ; work         ;
+;    |sevenSegDecoder:h4alu|    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|sevenSegDecoder:h4alu                            ; sevenSegDecoder  ; work         ;
+;    |sevenSegDecoder:h5alu|    ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|sevenSegDecoder:h5alu                            ; sevenSegDecoder  ; work         ;
+;    |sevenSegDecoder:ha|       ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|sevenSegDecoder:ha                               ; sevenSegDecoder  ; work         ;
+;    |sevenSegDecoder:hb|       ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|sevenSegDecoder:hb                               ; sevenSegDecoder  ; work         ;
+;    |subALU:alu0|              ; 28 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0                                      ; subALU           ; work         ;
+;       |fourBitAdd:add3|       ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|fourBitAdd:add3                      ; fourBitAdd       ; work         ;
+;       |rippleCarryAdder:add1| ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add1                ; rippleCarryAdder ; work         ;
+;          |fullAdder:add2|     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add1|fullAdder:add2 ; fullAdder        ; work         ;
+;          |fullAdder:add3|     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add1|fullAdder:add3 ; fullAdder        ; work         ;
+;       |rippleCarryAdder:add2| ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add2                ; rippleCarryAdder ; work         ;
+;          |fullAdder:add1|     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add2|fullAdder:add1 ; fullAdder        ; work         ;
+;          |fullAdder:add2|     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add2|fullAdder:add2 ; fullAdder        ; work         ;
+;          |fullAdder:add3|     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add2|fullAdder:add3 ; fullAdder        ; work         ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------+------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |alu|subALU:alu0|Mux2      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sevenSegDecoder:h5alu"                                                                                                                     ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                     ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; SW   ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (10 bits) it drives.  Extra input bit(s) "SW[9..4]" will be connected to GND. ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sevenSegDecoder:h4alu"                                                                                                                     ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                     ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; SW   ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (10 bits) it drives.  Extra input bit(s) "SW[9..4]" will be connected to GND. ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "sevenSegDecoder:hb" ;
++----------+-------+----------+------------------+
+; Port     ; Type  ; Severity ; Details          ;
++----------+-------+----------+------------------+
+; SW[9..4] ; Input ; Info     ; Stuck at GND     ;
++----------+-------+----------+------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "sevenSegDecoder:ha" ;
++----------+-------+----------+------------------+
+; Port     ; Type  ; Severity ; Details          ;
++----------+-------+----------+------------------+
+; SW[9..4] ; Input ; Info     ; Stuck at GND     ;
++----------+-------+----------+------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "sevenSegDecoder:h3" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; SW   ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "sevenSegDecoder:h1" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; SW   ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "subALU:alu0|rippleCarryAdder:add2"                                                                                                                                                   ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; cin     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; cin[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "subALU:alu0|rippleCarryAdder:add1"                                                                                                                                                   ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B[3..1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; B[0]    ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; cin     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; cin[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 64                          ;
+;     arith             ; 5                           ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 4                           ;
+;     extend            ; 4                           ;
+;         7 data inputs ; 4                           ;
+;     normal            ; 55                          ;
+;         0 data inputs ; 2                           ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 19                          ;
+;         5 data inputs ; 11                          ;
+;         6 data inputs ; 15                          ;
+; boundary_port         ; 61                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.30                        ;
+; Average LUT depth     ; 3.21                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Sun Sep 30 21:54:15 2018
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+    Info: Processing started: Sun Sep 30 22:39:59 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off alu -c alu
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Warning (12125): Using design file alu.v, which is not specified as a design file for the current project, but contains definitions for 6 design units and 6 entities in project
-    Info (12023): Found entity 1: alu File: /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/alu.v Line: 4
-    Info (12023): Found entity 2: subALU File: /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/alu.v Line: 24
-    Info (12023): Found entity 3: fourBitAdd File: /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/alu.v Line: 66
-    Info (12023): Found entity 4: rippleCarryAdder File: /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/alu.v Line: 75
-    Info (12023): Found entity 5: fullAdder File: /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/alu.v Line: 116
-    Info (12023): Found entity 6: sevenSegDecoder File: /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/alu.v Line: 128
+    Info (12023): Found entity 1: alu File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 4
+    Info (12023): Found entity 2: subALU File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 24
+    Info (12023): Found entity 3: fourBitAdd File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 67
+    Info (12023): Found entity 4: rippleCarryAdder File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 76
+    Info (12023): Found entity 5: fullAdder File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 117
+    Info (12023): Found entity 6: sevenSegDecoder File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 129
 Info (12127): Elaborating entity "alu" for the top level hierarchy
-Info (12128): Elaborating entity "subALU" for hierarchy "subALU:alu0" File: /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/alu.v Line: 12
-Error (10663): Verilog HDL Port Connection error at alu.v(33): output or inout port "s" must be connected to a structural net expression File: /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/alu.v Line: 33
-Error (10663): Verilog HDL Port Connection error at alu.v(33): output or inout port "cout" must be connected to a structural net expression File: /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/alu.v Line: 33
-Error (12152): Can't elaborate user hierarchy "subALU:alu0" File: /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/alu.v Line: 12
-Info (144001): Generated suppressed messages file /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/output_files/alu.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 3 errors, 2 warnings
-    Error: Peak virtual memory: 943 megabytes
-    Error: Processing ended: Sun Sep 30 21:54:27 2018
-    Error: Elapsed time: 00:00:12
-    Error: Total CPU time (on all processors): 00:00:19
+Info (12128): Elaborating entity "subALU" for hierarchy "subALU:alu0" File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 12
+Info (12128): Elaborating entity "rippleCarryAdder" for hierarchy "subALU:alu0|rippleCarryAdder:add1" File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 33
+Info (12128): Elaborating entity "fullAdder" for hierarchy "subALU:alu0|rippleCarryAdder:add1|fullAdder:add" File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 92
+Info (12128): Elaborating entity "fourBitAdd" for hierarchy "subALU:alu0|fourBitAdd:add3" File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 44
+Info (12128): Elaborating entity "sevenSegDecoder" for hierarchy "sevenSegDecoder:h1" File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 16
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/output_files/alu.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 123 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 50 output pins
+    Info (21061): Implemented 62 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 4868 megabytes
+    Info: Processing ended: Sun Sep 30 22:40:10 2018
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:24
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /h/u5/c7/05/shumeik2/CSC258/Lab3/ALU/output_files/alu.map.smsg.
+The suppressed messages can be found in C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/output_files/alu.map.smsg.
 
 
