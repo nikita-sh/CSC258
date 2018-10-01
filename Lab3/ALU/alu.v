@@ -17,7 +17,7 @@ module alu(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	sevenSegDecoder h3(.SW(10'b0000000000), .HEX0(HEX3));
 	sevenSegDecoder ha(.SW({6'b000000, SW[7:4]}), .HEX0(HEX2));
 	sevenSegDecoder hb(.SW({6'b000000, SW[3:0]}), .HEX0(HEX0));
-	sevenSegDecoder h4alu(.SW({hex1[0:3]}), .HEX0(HEX4));
+	sevenSegDecoder h4alu(.SW({hex1[3:0]}), .HEX0(HEX4));
 	sevenSegDecoder h5alu(.SW({hex1[7:4]}), .HEX0(HEX5));
 endmodule
 
@@ -25,50 +25,50 @@ module subALU(A, B, func, ALUout);
 	input [3:0] A;
 	input [3:0] B;
 	input [2:0] func;
-	output [7:0] ALUout;
+	output reg [7:0] ALUout;
 	
 	//A+1
-	reg [3:0] a1;
-	reg a2;
-	rippleCarryAdder a1(.A(A), .B(4'b0001), .cin(0), .s(a1), .cout(a2));
+	reg [3:0] addA1;
+	reg addA2;
+	rippleCarryAdder add1(.A(A), .B(4'b0001), .cin(0), .s(addA1), .cout(addA2));
 	
 	//A+B
 	reg [3:0] ab1;
 	reg ab2;
-	rippleCarryAdder a2(.A(A), .B(B), .cin(0), .s(ab1), .cout(ab2));
+	rippleCarryAdder add2(.A(A), .B(B), .cin(0), .s(ab1), .cout(ab2));
 	
 	//A+B using Verilog
 	reg [3:0] abv;
 	reg abvo;
-	fourBitAdd a3(.A(A), .B(B), .C(abv), .overflow(abvo));
+	fourBitAdd add3(.X(A), .Y(B), .C(abv), .overflow(abvo));
 	
-	always @(∗)
+	always @(*)
 	begin
 		case (func)
 			//A + 1
-			3'b000: assign ALUout = {3'b000, a2, a1};
+			3'b000: ALUout[7:0] = {3'b000, addA2, addA1};
 			//A + B (Using rippleCarryAdder)
-			3'b001: assign ALUout = {3'b000, ab2, ab1};
+			3'b001: ALUout = {3'b000, ab2, ab1};
 			//A + B (Using Verilog arithmetic)
-			3'b010: assign ALUout = {3'b000, abvo, abv};
+			3'b010: ALUout = {3'b000, abvo, abv};
 			//A XOR B in lower 4 bits, A OR B in higher 4
-			3'b011: assign ALUout = {A | B, A ^ B};
+			3'b011: ALUout = {A | B, A ^ B};
 			//A and B reduction OR
-			3'b100: assign ALUout = {7'b0000000, |(A|B)};
+			3'b100: ALUout = {7'b0000000, |(A|B)};
 			//A in leftmost 4 bits, B in rightmost 4 bits 
-			3'b101: assign {A, B};
+			3'b101: ALUout = {A, B};
 			//Display 0
-			default: assign ALUout = 8'b00000000
+			default: ALUout = 8'b00000000;
 		endcase
 	end
-endmodule;
+endmodule
 
-module fourBitAdd(A, B, C, overflow);
-	input [3:0] A;
-	input [3:0] B;
+module fourBitAdd(X, Y, C, overflow);
+	input [3:0] X;
+	input [3:0] Y;
 	output [3:0] C;
 	output overflow;
-	assign {overflow, C} = A+B;
+	assign {overflow, C} = X+Y;
 endmodule 
 
 //Ripple Carry Adder for use in ALU
