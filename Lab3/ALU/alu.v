@@ -1,7 +1,7 @@
 // Arithmetic Logic Unit
 // two data inputs
 
-module aluFinal(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
+module alu(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	input [7:0] SW;
 	input [2:0] KEY;
 	output [7:0] LEDR;
