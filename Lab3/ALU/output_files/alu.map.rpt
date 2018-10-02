@@ -1,5 +1,5 @@
-Analysis & Synthesis report for alu
-Mon Oct 01 23:42:32 2018
+Analysis & Elaboration report for alu
+Mon Oct 01 23:55:09 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -7,26 +7,19 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Port Connectivity Checks: "sevenSegDecoder:h5alu"
- 11. Port Connectivity Checks: "sevenSegDecoder:h4alu"
- 12. Port Connectivity Checks: "sevenSegDecoder:hb"
- 13. Port Connectivity Checks: "sevenSegDecoder:ha"
- 14. Port Connectivity Checks: "sevenSegDecoder:h3"
- 15. Port Connectivity Checks: "sevenSegDecoder:h1"
- 16. Port Connectivity Checks: "subALU:alu0|rippleCarryAdder:add2"
- 17. Port Connectivity Checks: "subALU:alu0|rippleCarryAdder:add1"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
- 21. Analysis & Synthesis Suppressed Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Port Connectivity Checks: "sevenSegDecoder:h5alu"
+  6. Port Connectivity Checks: "sevenSegDecoder:h4alu"
+  7. Port Connectivity Checks: "sevenSegDecoder:hb"
+  8. Port Connectivity Checks: "sevenSegDecoder:ha"
+  9. Port Connectivity Checks: "sevenSegDecoder:h3"
+ 10. Port Connectivity Checks: "sevenSegDecoder:h1"
+ 11. Port Connectivity Checks: "subALU:alu0|rippleCarryAdder:add2"
+ 12. Port Connectivity Checks: "subALU:alu0|rippleCarryAdder:add1"
+ 13. Analysis & Elaboration Messages
+ 14. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -49,31 +42,42 @@ refer to the applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Oct 01 23:42:32 2018       ;
-; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
-; Revision Name                   ; alu                                         ;
-; Top-level Entity Name           ; alu                                         ;
-; Family                          ; Cyclone V                                   ;
-; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
-; Total pins                      ; 61                                          ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
-; Total DSP Blocks                ; 0                                           ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0                                           ;
-; Total DLLs                      ; 0                                           ;
-+---------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                              ;
++-------------------------------+---------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Mon Oct 01 23:55:09 2018       ;
+; Quartus Prime Version         ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
+; Revision Name                 ; alu                                         ;
+; Top-level Entity Name         ; alu                                         ;
+; Family                        ; Cyclone V                                   ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
+; Total registers               ; N/A until Partition Merge                   ;
+; Total pins                    ; N/A until Partition Merge                   ;
+; Total virtual pins            ; N/A until Partition Merge                   ;
+; Total block memory bits       ; N/A until Partition Merge                   ;
+; Total PLLs                    ; N/A until Partition Merge                   ;
+; Total DLLs                    ; N/A until Partition Merge                   ;
++-------------------------------+---------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                             ;
+; Analysis & Elaboration Settings                                                                                           ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
@@ -159,105 +163,6 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 12          ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                       ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                   ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------+---------+
-; alu.v                            ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------+---------+
-
-
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 41           ;
-;                                             ;              ;
-; Combinational ALUT usage for logic          ; 62           ;
-;     -- 7 input functions                    ; 4            ;
-;     -- 6 input functions                    ; 15           ;
-;     -- 5 input functions                    ; 11           ;
-;     -- 4 input functions                    ; 19           ;
-;     -- <=3 input functions                  ; 13           ;
-;                                             ;              ;
-; Dedicated logic registers                   ; 0            ;
-;                                             ;              ;
-; I/O pins                                    ; 61           ;
-;                                             ;              ;
-; Total DSP Blocks                            ; 0            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; KEY[1]~input ;
-; Maximum fan-out                             ; 21           ;
-; Total fan-out                               ; 382          ;
-; Average fan-out                             ; 2.08         ;
-+---------------------------------------------+--------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                              ;
-+-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------+------------------+--------------+
-; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                   ; Entity Name      ; Library Name ;
-+-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------+------------------+--------------+
-; |alu                          ; 62 (0)              ; 0 (0)                     ; 0                 ; 0          ; 61   ; 0            ; |alu                                                  ; alu              ; work         ;
-;    |sevenSegDecoder:h4alu|    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|sevenSegDecoder:h4alu                            ; sevenSegDecoder  ; work         ;
-;    |sevenSegDecoder:h5alu|    ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|sevenSegDecoder:h5alu                            ; sevenSegDecoder  ; work         ;
-;    |sevenSegDecoder:ha|       ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|sevenSegDecoder:ha                               ; sevenSegDecoder  ; work         ;
-;    |sevenSegDecoder:hb|       ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|sevenSegDecoder:hb                               ; sevenSegDecoder  ; work         ;
-;    |subALU:alu0|              ; 28 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0                                      ; subALU           ; work         ;
-;       |fourBitAdd:add3|       ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|fourBitAdd:add3                      ; fourBitAdd       ; work         ;
-;       |rippleCarryAdder:add1| ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add1                ; rippleCarryAdder ; work         ;
-;          |fullAdder:add2|     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add1|fullAdder:add2 ; fullAdder        ; work         ;
-;          |fullAdder:add3|     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add1|fullAdder:add3 ; fullAdder        ; work         ;
-;       |rippleCarryAdder:add2| ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add2                ; rippleCarryAdder ; work         ;
-;          |fullAdder:add1|     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add2|fullAdder:add1 ; fullAdder        ; work         ;
-;          |fullAdder:add2|     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add2|fullAdder:add2 ; fullAdder        ; work         ;
-;          |fullAdder:add3|     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|subALU:alu0|rippleCarryAdder:add2|fullAdder:add3 ; fullAdder        ; work         ;
-+-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------+------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |alu|subALU:alu0|Mux2      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-
-
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "sevenSegDecoder:h5alu"                                                                                                                     ;
 +------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
@@ -332,47 +237,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------+-------+----------+----------------------------------+
 
 
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 64                          ;
-;     arith             ; 5                           ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 4                           ;
-;     extend            ; 4                           ;
-;         7 data inputs ; 4                           ;
-;     normal            ; 55                          ;
-;         0 data inputs ; 2                           ;
-;         3 data inputs ; 8                           ;
-;         4 data inputs ; 19                          ;
-;         5 data inputs ; 11                          ;
-;         6 data inputs ; 15                          ;
-; boundary_port         ; 61                          ;
-;                       ;                             ;
-; Max LUT depth         ; 4.30                        ;
-; Average LUT depth     ; 3.21                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Mon Oct 01 23:42:21 2018
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off alu -c alu
+    Info: Processing started: Mon Oct 01 23:54:59 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off alu -c alu --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Warning (12125): Using design file alu.v, which is not specified as a design file for the current project, but contains definitions for 6 design units and 6 entities in project
@@ -389,39 +261,17 @@ Info (12128): Elaborating entity "fullAdder" for hierarchy "subALU:alu0|rippleCa
 Info (12128): Elaborating entity "fourBitAdd" for hierarchy "subALU:alu0|fourBitAdd:add3" File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 44
 Info (12128): Elaborating entity "sevenSegDecoder" for hierarchy "sevenSegDecoder:h1" File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 16
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/alu.v Line: 8
-Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/output_files/alu.map.smsg
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 123 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 50 output pins
-    Info (21061): Implemented 62 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
-    Info: Peak virtual memory: 4869 megabytes
-    Info: Processing ended: Mon Oct 01 23:42:32 2018
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4796 megabytes
+    Info: Processing ended: Mon Oct 01 23:55:09 2018
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:23
 
 
-+------------------------------------------+
-; Analysis & Synthesis Suppressed Messages ;
-+------------------------------------------+
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
 The suppressed messages can be found in C:/Users/shume/Year 2 CS/CSC258/Lab3/ALU/output_files/alu.map.smsg.
 
 

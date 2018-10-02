@@ -1,0 +1,141 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/shume/Year 2 CS/CSC258/Lab3/ALU
+valu
+Z1 !s110 1538457034
+!i10b 1
+!s100 <DiN2NL1BnH7Fm4HeUQo`1
+IM__=lcclA@FiFEDPN=>cF1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1538451734
+Z4 8alu.v
+Z5 Falu.v
+L0 4
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1538457034.000000
+Z8 !s107 alu.v|
+Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|alu.v|
+!i113 1
+Z10 o-timescale 1ns/1ns
+Z11 tCvgOpt 0
+vfourBitAdd
+R1
+!i10b 1
+!s100 j]O?]8@2A^YI1nWl`QT?U3
+IZO5;jVDl1gfEQ@R2fl;dQ0
+R2
+R0
+R3
+R4
+R5
+L0 67
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nfour@bit@add
+vfullAdder
+R1
+!i10b 1
+!s100 1GRkh5Pi4hU;Hf1o866@n3
+Iho5]0IZ3k7gZRO>QiEBRO1
+R2
+R0
+R3
+R4
+R5
+L0 117
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nfull@adder
+vrippleCarryAdder
+R1
+!i10b 1
+!s100 <KkV]5m;Pzdj>[U<MInDo1
+IM^X_K=Fb7A]7d]S1PfC<d0
+R2
+R0
+R3
+R4
+R5
+L0 76
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nripple@carry@adder
+vsevenSegDecoder
+R1
+!i10b 1
+!s100 9Oo?b`4khgGOa:C;20U8>1
+IDjAO=2Z2g@3IaT7jUi<5Q2
+R2
+R0
+R3
+R4
+R5
+L0 129
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nseven@seg@decoder
+vsubALU
+R1
+!i10b 1
+!s100 J2:eb;f0b_UOS9Ti]D1a_3
+Ind<=1^ajjh4[C`<mNm8ig2
+R2
+R0
+R3
+R4
+R5
+L0 24
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nsub@a@l@u
