@@ -24,3 +24,5 @@ module mux7to1(LEDR, SW);
 	end 
 	assign LEDR[0] = out;
 endmodule 
+
+

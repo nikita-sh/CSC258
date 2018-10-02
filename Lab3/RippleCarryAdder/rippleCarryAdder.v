@@ -3,7 +3,7 @@ module rippleCarryAdder(SW, LEDR);
 	input [9:0] SW;
 	output [9:0] LEDR;
 	
-	subRippleCarryAdder(.A(SW[7:4]), .B(SW[3:0]), .cin(SW[8]), .s(LEDR[3:0]), .cout(LEDR[4]));
+	subRippleCarryAdder subRCA(.A(SW[7:4]), .B(SW[3:0]), .cin(SW[8]), .s(LEDR[3:0]), .cout(LEDR[4]));
 endmodule
 
 module subRippleCarryAdder(A, B, cin, s, cout);

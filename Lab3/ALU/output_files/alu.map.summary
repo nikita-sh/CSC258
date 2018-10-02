@@ -1,12 +1,17 @@
-Analysis & Synthesis Status : Failed - Sun Sep 30 21:54:27 2018
+Analysis & Synthesis Status : Successful - Mon Oct  1 21:10:18 2018
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : alu
 Top-level Entity Name : alu
 Family : Cyclone V
-Logic utilization (in ALMs) : N/A until Partition Merge
-Total registers : N/A until Partition Merge
-Total pins : N/A until Partition Merge
-Total virtual pins : N/A until Partition Merge
-Total block memory bits : N/A until Partition Merge
-Total PLLs : N/A until Partition Merge
-Total DLLs : N/A until Partition Merge
+Logic utilization (in ALMs) : N/A
+Total registers : 0
+Total pins : 61
+Total virtual pins : 0
+Total block memory bits : 0
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

@@ -7,4 +7,92 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-d/h/u5/c7/05/shumeik2/CSC258/Lab3/RippleCarryAdder
+Z0 d/h/u5/c7/05/shumeik2/CSC258/Lab3/RippleCarryAdder
+vfullAdder
+Z1 !s110 1538445817
+!i10b 1
+!s100 _^;YaGjS@A8mAGGEennJl0
+IHeE:2<4RZOY7c`_Qj9;[@3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1538443927
+Z4 8rippleCarryAdder.v
+Z5 FrippleCarryAdder.v
+L0 49
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1538445817.000000
+Z8 !s107 rippleCarryAdder.v|
+Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|rippleCarryAdder.v|
+!i113 1
+Z10 o-timescale 1ns/1ns
+Z11 tCvgOpt 0
+nfull@adder
+vrippleCarryAdder
+R1
+!i10b 1
+!s100 Q7=ZRg1Jdao><7F=X@eVR0
+I:DGl4m>MMl>D]GHn3Sg:V3
+R2
+R0
+R3
+R4
+R5
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nripple@carry@adder
+vrippleCarryTest
+!s110 1538442299
+!i10b 1
+!s100 T4HmIeSzH59S9d;?0;][A2
+I<5MYV@;]VZ]hX@ILBKHlk3
+R2
+R0
+w1538266669
+8rippleCarryTest.v
+FrippleCarryTest.v
+L0 3
+R6
+r1
+!s85 0
+31
+!s108 1538442298.000000
+!s107 rippleCarryTest.v|
+!s90 -reportprogress|300|-timescale|1ns/1ns|rippleCarryTest.v|
+!i113 1
+R10
+R11
+nripple@carry@test
+vsubRippleCarryAdder
+R1
+!i10b 1
+!s100 BV?a<3XM^C894=JW<2GOZ1
+Ij?K8LaAX8=f7g74N:i8gF2
+R2
+R0
+R3
+R4
+R5
+L0 9
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nsub@ripple@carry@adder
