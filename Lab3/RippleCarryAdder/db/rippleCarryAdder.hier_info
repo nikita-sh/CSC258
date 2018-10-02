@@ -9,16 +9,16 @@ SW[6] => SW[6].IN1
 SW[7] => SW[7].IN1
 SW[8] => SW[8].IN1
 SW[9] => ~NO_FANOUT~
-LEDR[0] <= subRippleCarryAdder:subRCA.s
-LEDR[1] <= subRippleCarryAdder:subRCA.s
-LEDR[2] <= subRippleCarryAdder:subRCA.s
-LEDR[3] <= subRippleCarryAdder:subRCA.s
-LEDR[4] <= subRippleCarryAdder:subRCA.cout
-LEDR[5] <= <GND>
-LEDR[6] <= <GND>
-LEDR[7] <= <GND>
-LEDR[8] <= <GND>
-LEDR[9] <= <GND>
+LEDR[0] << subRippleCarryAdder:subRCA.s
+LEDR[1] << subRippleCarryAdder:subRCA.s
+LEDR[2] << subRippleCarryAdder:subRCA.s
+LEDR[3] << subRippleCarryAdder:subRCA.s
+LEDR[4] << subRippleCarryAdder:subRCA.cout
+LEDR[5] << <GND>
+LEDR[6] << <GND>
+LEDR[7] << <GND>
+LEDR[8] << <GND>
+LEDR[9] << <GND>
 
 
 |rippleCarryAdder|subRippleCarryAdder:subRCA

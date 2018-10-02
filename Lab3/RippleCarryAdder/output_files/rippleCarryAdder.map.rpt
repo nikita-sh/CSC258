@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rippleCarryAdder
-Mon Oct  1 22:23:38 2018
+Mon Oct  1 22:43:02 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -43,7 +43,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Oct  1 22:23:38 2018       ;
+; Analysis & Synthesis Status     ; Successful - Mon Oct  1 22:43:02 2018       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; rippleCarryAdder                            ;
 ; Top-level Entity Name           ; rippleCarryAdder                            ;
@@ -264,7 +264,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Oct  1 22:23:24 2018
+    Info: Processing started: Mon Oct  1 22:42:34 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rippleCarryAdder -c rippleCarryAdder
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -292,9 +292,9 @@ Info (21057): Implemented 26 device resources after synthesis - the final resour
     Info (21059): Implemented 10 output pins
     Info (21061): Implemented 6 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 1030 megabytes
-    Info: Processing ended: Mon Oct  1 22:23:38 2018
-    Info: Elapsed time: 00:00:14
+    Info: Peak virtual memory: 1034 megabytes
+    Info: Processing ended: Mon Oct  1 22:43:02 2018
+    Info: Elapsed time: 00:00:28
     Info: Total CPU time (on all processors): 00:00:23
 
 

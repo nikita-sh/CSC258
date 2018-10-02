@@ -1,7 +1,7 @@
 // Arithmetic Logic Unit
 // two data inputs
 
-module alu(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
+module aluFinal(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	input [7:0] SW;
 	input [2:0] KEY;
 	output [7:0] LEDR;
@@ -11,7 +11,7 @@ module alu(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	
 	subALU alu0(.A(SW[7:4]), .B(SW[3:0]), .func(KEY[2:0]), .ALUout(hex1));
 	
-	assign LEDR[7:0] = hex1[7:0];
+	assign LEDR = hex1;
 	
 	sevenSegDecoder h1(.SW(10'b0000000000), .HEX0(HEX1));
 	sevenSegDecoder h3(.SW(10'b0000000000), .HEX0(HEX3));
@@ -30,12 +30,12 @@ module subALU(A, B, func, ALUout);
 	//A+1
 	wire [3:0] addA1;
 	wire addA2;
-	rippleCarryAdder add1(.A(A), .B(4'b0001), .cin(0), .s(addA1), .cout(addA2));
+	rippleCarryAdder add1(.A(A), .B(4'b0001), .cin(1'b0), .s(addA1), .cout(addA2));
 	
 	//A+B
 	wire [3:0] ab1;
 	wire ab2;
-	rippleCarryAdder add2(.A(A), .B(B), .cin(0), .s(ab1), .cout(ab2));
+	rippleCarryAdder add2(.A(A), .B(B), .cin(1'b0), .s(ab1), .cout(ab2));
 	
 	
 	//A+B using Verilog
@@ -47,7 +47,7 @@ module subALU(A, B, func, ALUout);
 	begin
 		case (func)
 			//A + 1
-			3'b000: ALUout[7:0] = {3'b000, addA2, addA1};
+			3'b000: ALUout = {3'b000, addA2, addA1};
 			//A + B (Using rippleCarryAdder)
 			3'b001: ALUout = {3'b000, ab2, ab1};
 			//A + B (Using Verilog arithmetic)
