@@ -1,78 +1,88 @@
 //eight bit shifter
-module shifter(LoadVal, Load_n, ShiftRight, ASR, clk, reset_n, Q);
-	input LoadVal, Load_n, ShiftRight, ASR, clk, reset_n;
+module shifter(SW, KEY, LEDR);
+	input [9:0] SW;
+	input [3:0] KEY;
+	output [9:0] LEDR;
+endmodule
+
+//eight bit shifter sub module
+module subShifter(LoadVal, Load_n, ShiftRight, ASR, clk, reset_n, Q);
+	input [7:0] LoadVal 
+	input Load_n, ShiftRight, ASR, clk, reset_n;
 	output [7:0] Q;
 	
-	wire w7, w6, w5, w4, w3, w2, w1;
+	wire sh_out[7:0];
 	
-	subShifterBit sh7(.load_val(LoadVal), 
+	subShifterBit sh7(.load_val(LoadVal[7]), 
 						   .load_n(Load_n), 
-							.clk(clk), 
+							.Clk(clk), 
 							.in(), 
-							.shift(), 
-							.reset_n(), 
-							.out(w7));
+							.shift(ShiftRight), 
+							.resetn(reset_n), 
+							.out(sh_out[7]));
 							
-	subShifterBit sh6(.load_val(), 
-						   .load_n(), 
-							.clk(), 
-							.in(w7), 
-							.shift(), 
-							.reset_n(), 
-							.out(w6));
+	subShifterBit sh6(.load_val(LoadVal[6]), 
+						   .load_n(Load_n), 
+							.Clk(clk), 
+							.in(sh_out[7]), 
+							.shift(ShiftRight), 
+							.resetn(reset_n), 
+							.out(sh_out[6]));
 							
-	subShifterBit sh5(.load_val(), 
-						   .load_n(), 
-							.clk(), 
-							.in(w6), 
-							.shift(), 
-							.reset_n(), 
-							.out(w5));
+	subShifterBit sh5(.load_val(LoadVal[5]), 
+						   .load_n(Load_n), 
+							.Clk(clk), 
+							.in(sh_out[6]), 
+							.shift(ShiftRight), 
+							.resetn(reset_n), 
+							.out(sh_out[5]));
 							
-	subShifterBit sh4(.load_val(), 
-						   .load_n(), 
-							.clk(), 
-							.in(w5), 
-							.shift(), 
-							.reset_n(), 
-							.out(w4));
+	subShifterBit sh4(.load_val(LoadVal[4]), 
+						   .load_n(Load_n), 
+							.Clk(clk), 
+							.in(sh_out[5]), 
+							.shift(ShiftRight), 
+							.resetn(reset_n), 
+							.out(sh_out[4]));
 							
-	subShifterBit sh3(.load_val(), 
-						   .load_n(), 
-							.clk(), 
-							.in(w4), 
-							.shift(), 
-							.reset_n(), 
-							.out(w3));
+	subShifterBit sh3(.load_val(LoadVal[3]), 
+						   .load_n(Load_n), 
+							.Clk(clk), 
+							.in(sh_out[4]), 
+							.shift(ShiftRight), 
+							.resetn(reset_n), 
+							.out(sh_out[3]));
 							
-	subShifterBit sh2(.load_val(), 
-						   .load_n(), 
-							.clk(), 
-							.in(w3), 
-							.shift(), 
-							.reset_n(), 
-							.out(w2));
+	subShifterBit sh2(.load_val(LoadVal[2]), 
+						   .load_n(Load_n), 
+							.Clk(clk), 
+							.in(sh_out[3]), 
+							.shift(ShiftRight), 
+							.resetn(reset_n), 
+							.out(sh_out[2]));
 	
-	subShifterBit sh1(.load_val(), 
-						   .load_n(), 
-							.clk(), 
-							.in(w2), 
-							.shift(), 
-							.reset_n(), 
-							.out(w1));
+	subShifterBit sh1(.load_val(LoadVal[1]), 
+						   .load_n(Load_n), 
+							.Clk(clk), 
+							.in(sh_out[2]), 
+							.shift(ShiftRight), 
+							.resetn(reset_n), 
+							.out(sh_out[1]));
 							
-	subShifterBit sh0(.load_val(), 
-						   .load_n(), 
-							.clk(), 
-							.in(w1), 
-							.shift(), 
-							.reset_n(), 
-							.out());
+	subShifterBit sh0(.load_val(LoadVal[0]), 
+						   .load_n(Load_n), 
+							.Clk(clk), 
+							.in(sh_out[1]), 
+							.shift(ShiftRight), 
+							.resetn(reset_n), 
+							.out(sh_out[0]));
+							
+	assign Q = sh_out;
 endmodule
 
 //single bit shifter
-module subShifterBit(load_val, load_n, clk, in, shift, reset_n, out);
-	input load_val, load_n, clk, in, shift, reset_n;
+module subShifterBit(load_val, load_n, Clk, in, shift, resetn, out);
+	input load_val, load_n, Clk, in, shift, resetn;
 	output out;
 	
 	wire mux1tomux2;
@@ -89,8 +99,8 @@ module subShifterBit(load_val, load_n, clk, in, shift, reset_n, out);
 					 .s(load_n), 
 					 .m(mux2toff));
 					 
-	flipflop ff(.clock(clk), 
-					.reset_n(reset_n), 
+	flipflop ff(.clock(Clk), 
+					.Resetn(resetn), 
 					.d(mux2toff), 
 					.q(ffout));
 	
@@ -108,13 +118,13 @@ module mux2to1(x, y, s, m);
 endmodule
 
 //D flip flop
-module flipflop(clock, reset_n, d, q);
-	input clock, reset_n, d;
+module flipflop(clock, Resetn, d, q);
+	input clock, Resetn, d;
 	output q;
 	
 	always @(posedge clock)
 	begin
-		if (reset_n == 1'b0)
+		if (Resetn == 1'b0)
 			q <= 0;
 		else 
 			q <= d;
