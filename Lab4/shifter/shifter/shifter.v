@@ -11,7 +11,7 @@ module subShifter(LoadVal, Load_n, ShiftRight, ASR, clk, reset_n, Q);
 	input Load_n, ShiftRight, ASR, clk, reset_n;
 	output [7:0] Q;
 	
-	wire sh_out[7:0];
+	wire [7:0] sh_out;
 	
 	subShifterBit sh7(.load_val(LoadVal[7]), 
 						   .load_n(Load_n), 
