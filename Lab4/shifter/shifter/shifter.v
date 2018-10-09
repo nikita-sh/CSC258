@@ -3,20 +3,33 @@ module shifter(SW, KEY, LEDR);
 	input [9:0] SW;
 	input [3:0] KEY;
 	output [9:0] LEDR;
+	
+	subShifter sh(.LoadVal(SW[7:0]), 
+					  .Load_n(KEY[1]), 
+					  .ShiftRight(KEY[2]), 
+					  .ASR(KEY[3]), 
+					  .clk(KEY[0]), 
+					  .reset_n(SW[9]), 
+					  .Q(LEDR[7:0]));
 endmodule
 
 //eight bit shifter sub module
 module subShifter(LoadVal, Load_n, ShiftRight, ASR, clk, reset_n, Q);
-	input [7:0] LoadVal 
+	input [7:0] LoadVal;
 	input Load_n, ShiftRight, ASR, clk, reset_n;
 	output [7:0] Q;
 	
 	wire [7:0] sh_out;
+	wire ext;
+	
+	signExtension s(.asr(ASR), 
+					    .in(LoadVal[7]), 
+					    .out(ext));
 	
 	subShifterBit sh7(.load_val(LoadVal[7]), 
 						   .load_n(Load_n), 
 							.Clk(clk), 
-							.in(), 
+							.in(ext), 
 							.shift(ShiftRight), 
 							.resetn(reset_n), 
 							.out(sh_out[7]));
@@ -80,6 +93,20 @@ module subShifter(LoadVal, Load_n, ShiftRight, ASR, clk, reset_n, Q);
 	assign Q = sh_out;
 endmodule
 
+//circuit to perform sign extension
+module signExtension(asr, in, out);
+	input asr, in;
+	output reg out;
+	
+	always @(*)
+	begin
+		if (asr == 1'b1)
+			out <= in;
+		else
+			out <= 1'b0;
+	end
+endmodule
+
 //single bit shifter
 module subShifterBit(load_val, load_n, Clk, in, shift, resetn, out);
 	input load_val, load_n, Clk, in, shift, resetn;
@@ -94,7 +121,7 @@ module subShifterBit(load_val, load_n, Clk, in, shift, resetn, out);
 					 .s(shift), 
 					 .m(mux1tomux2));
 					 
-	mux2to1 mux1(.x(mux1tomux2), 
+	mux2to1 mux2(.x(mux1tomux2), 
 					 .y(load_val), 
 					 .s(load_n), 
 					 .m(mux2toff));
@@ -120,7 +147,7 @@ endmodule
 //D flip flop
 module flipflop(clock, Resetn, d, q);
 	input clock, Resetn, d;
-	output q;
+	output reg q;
 	
 	always @(posedge clock)
 	begin
