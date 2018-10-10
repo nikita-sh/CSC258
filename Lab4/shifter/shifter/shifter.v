@@ -41,7 +41,7 @@ module subShifter(LoadVal, Load_n, ShiftRight, ASR, clk, reset_n, Q);
 							.shift(ShiftRight), 
 							.resetn(reset_n), 
 							.out(sh_out[6]));
-							
+
 	subShifterBit sh5(.load_val(LoadVal[5]), 
 						   .load_n(Load_n), 
 							.Clk(clk), 
@@ -116,13 +116,13 @@ module subShifterBit(load_val, load_n, Clk, in, shift, resetn, out);
 	wire mux2toff;
 	wire ffout;
 	
-	mux2to1 mux1(.x(in), 
-					 .y(ffout), 
+	mux2to1 mux1(.x(ffout), 
+					 .y(in), 
 					 .s(shift), 
 					 .m(mux1tomux2));
 					 
-	mux2to1 mux2(.x(mux1tomux2), 
-					 .y(load_val), 
+	mux2to1 mux2(.x(load_val), 
+					 .y(mux1tomux2), 
 					 .s(load_n), 
 					 .m(mux2toff));
 					 
