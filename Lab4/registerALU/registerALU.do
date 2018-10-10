@@ -5,7 +5,8 @@ vsim registerALU
 log {/*}
 add wave {/*}
 
-force {SW[0]} 0 0, 1 10 -r 20
+force {KEY[0]} 0 0, 1 5 -r 10
+force {SW[9]} 1
 
 # A+1
 # Function inputs
@@ -14,58 +15,66 @@ force {SW[6]} 0
 force {SW[5]} 0
 
 # reset_n
-force {SW[9]} 0
+#force {SW[9]} 0
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
 # reset_n
-force {SW[9]} 1
+#force {SW[9]} 1
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
@@ -76,58 +85,63 @@ force {SW[6]} 0
 force {SW[5]} 1
 
 # reset_n
-force {SW[9]} 0
+#force {SW[9]} 0
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
-
-# reset_n
-force {SW[9]} 1
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
@@ -138,58 +152,66 @@ force {SW[6]} 1
 force {SW[5]} 0
 
 # reset_n
-force {SW[9]} 0
+#force {SW[9]} 0
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
 # reset_n
-force {SW[9]} 1
+#force {SW[9]} 1
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
@@ -200,58 +222,66 @@ force {SW[6]} 1
 force {SW[5]} 1
 
 # reset_n
-force {SW[9]} 0
+#force {SW[9]} 0
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
 # reset_n
-force {SW[9]} 1
+#force {SW[9]} 1
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
@@ -262,58 +292,66 @@ force {SW[6]} 0
 force {SW[5]} 0
 
 # reset_n
-force {SW[9]} 0
+#force {SW[9]} 0
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
 # reset_n
-force {SW[9]} 1
+#force {SW[9]} 1
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
@@ -324,30 +362,34 @@ force {SW[6]} 0
 force {SW[5]} 1
 
 # reset_n
-force {SW[9]} 0
+force {SW[9]} 1
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
@@ -358,24 +400,28 @@ force {SW[9]} 1
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
@@ -386,30 +432,34 @@ force {SW[6]} 1
 force {SW[5]} 0
 
 # reset_n
-force {SW[9]} 0
+force {SW[9]} 1
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
@@ -420,120 +470,66 @@ force {SW[9]} 1
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
 # A X B using Verilog *
 # Function inputs
 force {SW[7]} 1
-force {SW[6]} 0
-force {SW[5]} 1
-
-# reset_n
-force {SW[9]} 0
-
-# data
-force {SW[3]} 0
-force {SW[2]} 0
-force {SW[1]} 0
-
-run 10ns
-
-force {SW[3]} 0
-force {SW[2]} 0
-force {SW[1]} 1
-
-run 10ns
-
-force {SW[3]} 0
-force {SW[2]} 1
-force {SW[1]} 0
-
-run 10ns
-
-force {SW[3]} 0
-force {SW[2]} 1
-force {SW[1]} 1
-
-run 10ns
-
-# reset_n
-force {SW[9]} 1
-
-# data
-force {SW[3]} 0
-force {SW[2]} 0
-force {SW[1]} 0
-
-run 10ns
-
-force {SW[3]} 0
-force {SW[2]} 0
-force {SW[1]} 1
-
-run 10ns
-
-force {SW[3]} 0
-force {SW[2]} 1
-force {SW[1]} 0
-
-run 10ns
-
-force {SW[3]} 0
-force {SW[2]} 1
-force {SW[1]} 1
-
-run 10ns
-
-# Right shift B by A bits
-# Function inputs
-force {SW[7]} 1
 force {SW[6]} 1
 force {SW[5]} 1
 
 # reset_n
-force {SW[9]} 0
+force {SW[9]} 1
 
 # data
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
 
@@ -544,23 +540,27 @@ force {SW[9]} 1
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 0
 force {SW[1]} 1
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 0
+force {SW[0]} 0
 
 run 10ns
 
 force {SW[3]} 0
 force {SW[2]} 1
 force {SW[1]} 1
+force {SW[0]} 1
 
 run 10ns
