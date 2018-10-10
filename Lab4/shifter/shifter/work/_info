@@ -7,15 +7,15 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/h/u5/c7/05/shumeik2/CSC258/Lab4/shifter/shifter
+d/h/u5/c7/05/shumeik2/CSC258/Lab4/shifter/shifter
 vflipflop
-Z1 !s110 1539132182
+Z0 !s110 1539197358
 !i10b 1
 !s100 j?ElFEX:?8njZPJVi^IzG0
 I7UWmZ5ZeH?kXbQgVBa0gE1
-Z2 VDg1SIo80bB@j0V0VzS_@n1
-R0
-Z3 w1539132168
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/shume/Year 2 CS/CSC258/Lab4/shifter/shifter
+Z3 w1539137374
 Z4 8shifter.v
 Z5 Fshifter.v
 L0 148
@@ -23,19 +23,19 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1539132181.000000
+Z7 !s108 1539197358.000000
 Z8 !s107 shifter.v|
 Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|shifter.v|
 !i113 1
 Z10 o-timescale 1ns/1ns
 Z11 tCvgOpt 0
 vmux2to1
-R1
+R0
 !i10b 1
 !s100 O[]E_jl:RhjIS[Tc5`YlL1
 ICMd9=X_oB8;_c?JC?[CbY2
+R1
 R2
-R0
 R3
 R4
 R5
@@ -51,12 +51,12 @@ R9
 R10
 R11
 vshifter
-!s110 1539132181
+R0
 !i10b 1
 !s100 ;>`Nd66<<ZYm3gLk@N[a11
 I^nWQhB=kDOBDTzk6Xf[SK1
+R1
 R2
-R0
 R3
 R4
 R5
@@ -72,12 +72,12 @@ R9
 R10
 R11
 vsignExtension
-R1
+R0
 !i10b 1
 !s100 _hco>QcHE;704gdT_:f063
 IMjH4MW;bSz[AgiU6EkK:I1
+R1
 R2
-R0
 R3
 R4
 R5
@@ -94,12 +94,12 @@ R10
 R11
 nsign@extension
 vsubShifter
-R1
+R0
 !i10b 1
 !s100 Inm6kaX2hoODmCLJE_DIc2
 I<En^9QRKa[deGTT4KM<>=1
+R1
 R2
-R0
 R3
 R4
 R5
@@ -116,12 +116,12 @@ R10
 R11
 nsub@shifter
 vsubShifterBit
-R1
+R0
 !i10b 1
 !s100 @N1Z[6iJ`fg^jkIzcl=9;1
 Iid3lCYRe6B]f9W`KbKZ@e3
+R1
 R2
-R0
 R3
 R4
 R5
