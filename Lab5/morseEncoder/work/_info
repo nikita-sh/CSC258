@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 d/h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder
 vflipflop
-Z1 !s110 1539892910
+Z1 !s110 1539894452
 !i10b 1
 !s100 k<oi^L7aO_S5L1QYPE3i80
 Ig`JIFUmTfV]R5[j8<SK`U3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z3 w1539892637
+Z3 w1539893602
 Z4 8morseEncoder.v
 Z5 FmorseEncoder.v
 L0 227
@@ -23,14 +23,14 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1539892908.000000
+Z7 !s108 1539894450.000000
 Z8 !s107 morseEncoder.v|
 Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|morseEncoder.v|
 !i113 1
 Z10 o-timescale 1ns/1ns
 Z11 tCvgOpt 0
 vgenMorseEncoder
-Z12 !s110 1539892909
+Z12 !s110 1539894451
 !i10b 1
 !s100 l^oUzB>Acd8i3AZP3QZKI3
 Ia4nM<D;7W1HbN]6e1mDdo2
@@ -182,7 +182,7 @@ R10
 R11
 nsub@shifter
 vsubShifterBit
-R12
+R1
 !i10b 1
 !s100 GC?bPQTWPlnNl8>55CfkI3
 IkOkP;Wl`Mgczmi[bki9be0
