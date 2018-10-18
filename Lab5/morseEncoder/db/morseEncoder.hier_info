@@ -1,0 +1,770 @@
+|morseEncoder
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+KEY[0] => KEY[0].IN1
+KEY[1] => KEY[1].IN1
+CLOCK_50 => CLOCK_50.IN1
+LEDR[0] <= genMorseEncoder:gme.out
+
+
+|morseEncoder|genMorseEncoder:gme
+enable => enable.IN2
+letter[0] => letter[0].IN1
+letter[1] => letter[1].IN1
+letter[2] => letter[2].IN1
+reset => reset.IN2
+clk => clk.IN1
+out <= subShifter:comb_5.Q
+
+
+|morseEncoder|genMorseEncoder:gme|lookUpTable:lut
+in[0] => Decoder0.IN2
+in[0] => Decoder1.IN1
+in[1] => Decoder0.IN1
+in[1] => Decoder2.IN1
+in[2] => Decoder0.IN0
+in[2] => Decoder1.IN0
+in[2] => Decoder2.IN0
+out[0] <= <VCC>
+out[1] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= <VCC>
+out[3] <= <GND>
+out[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= Decoder2.DB_MAX_OUTPUT_PORT_TYPE
+out[7] <= <GND>
+out[8] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out[9] <= Decoder1.DB_MAX_OUTPUT_PORT_TYPE
+out[10] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+out[11] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[12] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[13] <= <GND>
+out[14] <= <GND>
+out[15] <= <GND>
+
+
+|morseEncoder|genMorseEncoder:gme|rateDivider:rate
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+enable => q.OUTPUTSELECT
+load[0] => q.DATAB
+load[0] => q.DATAB
+load[1] => q.DATAB
+load[1] => q.DATAB
+load[2] => q.DATAB
+load[2] => q.DATAB
+load[3] => q.DATAB
+load[3] => q.DATAB
+load[4] => q.DATAB
+load[4] => q.DATAB
+load[5] => q.DATAB
+load[5] => q.DATAB
+load[6] => q.DATAB
+load[6] => q.DATAB
+load[7] => q.DATAB
+load[7] => q.DATAB
+load[8] => q.DATAB
+load[8] => q.DATAB
+load[9] => q.DATAB
+load[9] => q.DATAB
+load[10] => q.DATAB
+load[10] => q.DATAB
+load[11] => q.DATAB
+load[11] => q.DATAB
+load[12] => q.DATAB
+load[12] => q.DATAB
+load[13] => q.DATAB
+load[13] => q.DATAB
+load[14] => q.DATAB
+load[14] => q.DATAB
+load[15] => q.DATAB
+load[15] => q.DATAB
+load[16] => q.DATAB
+load[16] => q.DATAB
+load[17] => q.DATAB
+load[17] => q.DATAB
+load[18] => q.DATAB
+load[18] => q.DATAB
+load[19] => q.DATAB
+load[19] => q.DATAB
+load[20] => q.DATAB
+load[20] => q.DATAB
+load[21] => q.DATAB
+load[21] => q.DATAB
+load[22] => q.DATAB
+load[22] => q.DATAB
+load[23] => q.DATAB
+load[23] => q.DATAB
+load[24] => q.DATAB
+load[24] => q.DATAB
+load[25] => q.DATAB
+load[25] => q.DATAB
+load[26] => q.DATAB
+load[26] => q.DATAB
+load[27] => q.DATAB
+load[27] => q.DATAB
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+clk => q[4]~reg0.CLK
+clk => q[5]~reg0.CLK
+clk => q[6]~reg0.CLK
+clk => q[7]~reg0.CLK
+clk => q[8]~reg0.CLK
+clk => q[9]~reg0.CLK
+clk => q[10]~reg0.CLK
+clk => q[11]~reg0.CLK
+clk => q[12]~reg0.CLK
+clk => q[13]~reg0.CLK
+clk => q[14]~reg0.CLK
+clk => q[15]~reg0.CLK
+clk => q[16]~reg0.CLK
+clk => q[17]~reg0.CLK
+clk => q[18]~reg0.CLK
+clk => q[19]~reg0.CLK
+clk => q[20]~reg0.CLK
+clk => q[21]~reg0.CLK
+clk => q[22]~reg0.CLK
+clk => q[23]~reg0.CLK
+clk => q[24]~reg0.CLK
+clk => q[25]~reg0.CLK
+clk => q[26]~reg0.CLK
+clk => q[27]~reg0.CLK
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[8] <= q[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[9] <= q[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[10] <= q[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[11] <= q[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[12] <= q[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[13] <= q[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[14] <= q[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[15] <= q[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[16] <= q[16]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[17] <= q[17]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[18] <= q[18]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[19] <= q[19]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[20] <= q[20]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[21] <= q[21]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[22] <= q[22]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[23] <= q[23]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[24] <= q[24]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[25] <= q[25]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[26] <= q[26]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[27] <= q[27]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5
+LoadVal[0] => LoadVal[0].IN1
+LoadVal[1] => LoadVal[1].IN1
+LoadVal[2] => LoadVal[2].IN1
+LoadVal[3] => LoadVal[3].IN1
+LoadVal[4] => LoadVal[4].IN1
+LoadVal[5] => LoadVal[5].IN1
+LoadVal[6] => LoadVal[6].IN1
+LoadVal[7] => LoadVal[7].IN1
+LoadVal[8] => LoadVal[8].IN1
+LoadVal[9] => LoadVal[9].IN1
+LoadVal[10] => LoadVal[10].IN1
+LoadVal[11] => LoadVal[11].IN1
+LoadVal[12] => LoadVal[12].IN1
+LoadVal[13] => LoadVal[13].IN1
+LoadVal[14] => LoadVal[14].IN1
+LoadVal[15] => LoadVal[15].IN1
+in => in.IN1
+Load_n => Load_n.IN16
+clk => clk.IN16
+shift => shift.IN16
+reset_n => reset_n.IN16
+Q <= subShifterBit:sh0.out
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh15
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh15|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh15|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh15|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh14
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh14|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh14|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh14|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh13
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh13|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh13|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh13|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh12
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh12|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh12|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh12|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh11
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh11|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh11|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh11|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh10
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh10|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh10|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh10|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh9
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh9|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh9|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh9|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh8
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh8|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh8|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh8|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh7
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh7|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh7|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh7|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh6
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh6|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh6|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh6|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh5
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh5|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh5|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh5|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh4
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh4|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh4|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh4|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh3
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh3|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh3|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh3|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh2
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh2|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh2|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh2|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh1
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh1|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh1|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh1|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh0
+load_val => load_val.IN1
+load_n => load_n.IN1
+clk => clk.IN1
+in => in.IN1
+shift => shift.IN1
+resetn => resetn.IN1
+out <= ffout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh0|mux2to1:mux1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh0|mux2to1:mux2
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh0|flipflop:ff
+clock => q~reg0.CLK
+Resetn => q.OUTPUTSELECT
+d => q.DATAB
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

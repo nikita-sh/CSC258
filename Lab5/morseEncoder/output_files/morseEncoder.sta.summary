@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -7.877
+TNS   : -200.820
+
+Type  : Slow 1100mV 85C Model Setup 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : -1.179
+TNS   : -13.698
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.263
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : 1.003
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -14.961
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : -0.394
+TNS   : -7.714
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -7.531
+TNS   : -193.165
+
+Type  : Slow 1100mV 0C Model Setup 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : -1.173
+TNS   : -13.303
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.052
+TNS   : -0.069
+
+Type  : Slow 1100mV 0C Model Hold 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : 0.968
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -15.974
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : -0.394
+TNS   : -8.157
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -4.932
+TNS   : -120.465
+
+Type  : Fast 1100mV 85C Model Setup 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : -0.530
+TNS   : -5.429
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.197
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : 0.474
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.083
+TNS   : -2.283
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : 0.048
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -4.222
+TNS   : -103.466
+
+Type  : Fast 1100mV 0C Model Setup 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : -0.403
+TNS   : -4.209
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.157
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : 0.426
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.082
+TNS   : -2.264
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'genMorseEncoder:gme|rateDivider:rate|q[0]'
+Slack : 0.050
+TNS   : 0.000
+
+------------------------------------------------------------

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for morseEncoder
-Thu Oct 18 00:57:53 2018
+Thu Oct 18 11:50:06 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -10,7 +10,18 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "genMorseEncoder:gme|subShifter:comb_5"
+ 13. Port Connectivity Checks: "genMorseEncoder:gme|rateDivider:rate"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -34,22 +45,27 @@ agreement for further details.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Thu Oct 18 00:57:53 2018           ;
-; Quartus Prime Version       ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
-; Revision Name               ; morseEncoder                                ;
-; Top-level Entity Name       ; morseEncoder                                ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Oct 18 11:50:05 2018       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                   ; morseEncoder                                ;
+; Top-level Entity Name           ; morseEncoder                                ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 41                                          ;
+; Total pins                      ; 7                                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -148,11 +164,205 @@ agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                               ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                 ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
+; morseEncoder.v                   ; yes             ; User Verilog HDL File  ; /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 39           ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 68           ;
+;     -- 7 input functions                    ; 0            ;
+;     -- 6 input functions                    ; 9            ;
+;     -- 5 input functions                    ; 14           ;
+;     -- 4 input functions                    ; 5            ;
+;     -- <=3 input functions                  ; 40           ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 41           ;
+;                                             ;              ;
+; I/O pins                                    ; 7            ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; KEY[0]~input ;
+; Maximum fan-out                             ; 32           ;
+; Total fan-out                               ; 368          ;
+; Average fan-out                             ; 2.99         ;
++---------------------------------------------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                           ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                 ; Entity Name     ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+-----------------+--------------+
+; |morseEncoder                 ; 68 (0)              ; 41 (0)                    ; 0                 ; 0          ; 7    ; 0            ; |morseEncoder                                                                       ; morseEncoder    ; work         ;
+;    |genMorseEncoder:gme|      ; 68 (8)              ; 41 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme                                                   ; genMorseEncoder ; work         ;
+;       |rateDivider:rate|      ; 47 (47)             ; 28 (28)                   ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|rateDivider:rate                                  ; rateDivider     ; work         ;
+;       |subShifter:comb_5|     ; 13 (0)              ; 13 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5                                 ; subShifter      ; work         ;
+;          |subShifterBit:sh0|  ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh0               ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh0|flipflop:ff   ; flipflop        ; work         ;
+;             |mux2to1:mux2|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh0|mux2to1:mux2  ; mux2to1         ; work         ;
+;          |subShifterBit:sh10| ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh10              ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh10|flipflop:ff  ; flipflop        ; work         ;
+;          |subShifterBit:sh11| ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh11              ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh11|flipflop:ff  ; flipflop        ; work         ;
+;          |subShifterBit:sh12| ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh12              ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh12|flipflop:ff  ; flipflop        ; work         ;
+;             |mux2to1:mux2|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh12|mux2to1:mux2 ; mux2to1         ; work         ;
+;          |subShifterBit:sh1|  ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh1               ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh1|flipflop:ff   ; flipflop        ; work         ;
+;          |subShifterBit:sh2|  ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh2               ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh2|flipflop:ff   ; flipflop        ; work         ;
+;             |mux2to1:mux2|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh2|mux2to1:mux2  ; mux2to1         ; work         ;
+;          |subShifterBit:sh3|  ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh3               ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh3|flipflop:ff   ; flipflop        ; work         ;
+;             |mux2to1:mux2|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh3|mux2to1:mux2  ; mux2to1         ; work         ;
+;          |subShifterBit:sh4|  ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh4               ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh4|flipflop:ff   ; flipflop        ; work         ;
+;          |subShifterBit:sh5|  ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh5               ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh5|flipflop:ff   ; flipflop        ; work         ;
+;          |subShifterBit:sh6|  ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh6               ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh6|flipflop:ff   ; flipflop        ; work         ;
+;          |subShifterBit:sh7|  ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh7               ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh7|flipflop:ff   ; flipflop        ; work         ;
+;             |mux2to1:mux2|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh7|mux2to1:mux2  ; mux2to1         ; work         ;
+;          |subShifterBit:sh8|  ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh8               ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh8|flipflop:ff   ; flipflop        ; work         ;
+;          |subShifterBit:sh9|  ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh9               ; subShifterBit   ; work         ;
+;             |flipflop:ff|     ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh9|flipflop:ff   ; flipflop        ; work         ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                              ;
++------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                          ; Reason for Removal                     ;
++------------------------------------------------------------------------+----------------------------------------+
+; genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh15|flipflop:ff|q ; Stuck at GND due to stuck port data_in ;
+; genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh14|flipflop:ff|q ; Stuck at GND due to stuck port data_in ;
+; genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh13|flipflop:ff|q ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 3                                  ;                                        ;
++------------------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                  ;
++------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------+
+; Register name                                                          ; Reason for Removal        ; Registers Removed due to This Register                                  ;
++------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------+
+; genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh15|flipflop:ff|q ; Stuck at GND              ; genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh14|flipflop:ff|q, ;
+;                                                                        ; due to stuck port data_in ; genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh13|flipflop:ff|q  ;
++------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 41    ;
+; Number of registers using Synchronous Clear  ; 20    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 28    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh11|flipflop:ff|q ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |morseEncoder|genMorseEncoder:gme|rateDivider:rate|q[17]                             ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |morseEncoder|genMorseEncoder:gme|rateDivider:rate|q[0]                              ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |morseEncoder|genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh5|flipflop:ff|q  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "genMorseEncoder:gme|subShifter:comb_5" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; in    ; Input ; Info     ; Stuck at GND                           ;
+; shift ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "genMorseEncoder:gme|rateDivider:rate" ;
++--------------+-------+----------+--------------------------------+
+; Port         ; Type  ; Severity ; Details                        ;
++--------------+-------+----------+--------------------------------+
+; load[22..18] ; Input ; Info     ; Stuck at VCC                   ;
+; load[14..11] ; Input ; Info     ; Stuck at VCC                   ;
+; load[5..0]   ; Input ; Info     ; Stuck at VCC                   ;
+; load[27..25] ; Input ; Info     ; Stuck at GND                   ;
+; load[10..6]  ; Input ; Info     ; Stuck at GND                   ;
+; load[24]     ; Input ; Info     ; Stuck at VCC                   ;
+; load[23]     ; Input ; Info     ; Stuck at GND                   ;
+; load[17]     ; Input ; Info     ; Stuck at GND                   ;
+; load[16]     ; Input ; Info     ; Stuck at VCC                   ;
+; load[15]     ; Input ; Info     ; Stuck at GND                   ;
++--------------+-------+----------+--------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 41                          ;
+;     ENA               ; 17                          ;
+;     ENA SCLR          ; 11                          ;
+;     SCLR              ; 9                           ;
+;     plain             ; 4                           ;
+; arriav_lcell_comb     ; 68                          ;
+;     arith             ; 28                          ;
+;         1 data inputs ; 28                          ;
+;     normal            ; 40                          ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 5                           ;
+;         5 data inputs ; 14                          ;
+;         6 data inputs ; 9                           ;
+; boundary_port         ; 7                           ;
+;                       ;                             ;
+; Max LUT depth         ; 4.40                        ;
+; Average LUT depth     ; 2.89                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -161,22 +371,40 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Oct 18 00:57:42 2018
+    Info: Processing started: Thu Oct 18 11:49:47 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off morseEncoder -c morseEncoder
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 5 design units, including 5 entities, in source file morseEncoder.v
+Info (12021): Found 8 design units, including 8 entities, in source file morseEncoder.v
     Info (12023): Found entity 1: morseEncoder File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 1
     Info (12023): Found entity 2: genMorseEncoder File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 10
-    Info (12023): Found entity 3: rateDivider File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 34
-    Info (12023): Found entity 4: shiftRegister File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 54
-    Info (12023): Found entity 5: lookUpTable File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 79
-Error (10137): Verilog HDL Procedural Assignment error at morseEncoder.v(68): object "parallel" on left-hand side of assignment must have a variable data type File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 68
-Error (10231): Verilog HDL error at morseEncoder.v(68): value cannot be assigned to input "parallel" File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 68
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
-    Error: Peak virtual memory: 944 megabytes
-    Error: Processing ended: Thu Oct 18 00:57:54 2018
-    Error: Elapsed time: 00:00:12
-    Error: Total CPU time (on all processors): 00:00:19
+    Info (12023): Found entity 3: rateDivider File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 30
+    Info (12023): Found entity 4: subShifter File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 50
+    Info (12023): Found entity 5: subShifterBit File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 189
+    Info (12023): Found entity 6: mux2to1 File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 216
+    Info (12023): Found entity 7: flipflop File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 226
+    Info (12023): Found entity 8: lookUpTable File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 240
+Critical Warning (10846): Verilog HDL Instantiation warning at morseEncoder.v(26): instance has no name File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 26
+Info (12127): Elaborating entity "morseEncoder" for the top level hierarchy
+Info (12128): Elaborating entity "genMorseEncoder" for hierarchy "genMorseEncoder:gme" File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 7
+Warning (10230): Verilog HDL assignment warning at morseEncoder.v(24): truncated value with size 32 to match size of target (1) File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 24
+Info (12128): Elaborating entity "lookUpTable" for hierarchy "genMorseEncoder:gme|lookUpTable:lut" File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 17
+Info (12128): Elaborating entity "rateDivider" for hierarchy "genMorseEncoder:gme|rateDivider:rate" File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 21
+Info (12128): Elaborating entity "subShifter" for hierarchy "genMorseEncoder:gme|subShifter:comb_5" File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 26
+Info (12128): Elaborating entity "subShifterBit" for hierarchy "genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh15" File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 63
+Info (12128): Elaborating entity "mux2to1" for hierarchy "genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh15|mux2to1:mux1" File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 200
+Info (12128): Elaborating entity "flipflop" for hierarchy "genMorseEncoder:gme|subShifter:comb_5|subShifterBit:sh15|flipflop:ff" File: /h/u5/c7/05/shumeik2/CSC258/Lab5/morseEncoder/morseEncoder.v Line: 210
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 75 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 68 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 1045 megabytes
+    Info: Processing ended: Thu Oct 18 11:50:06 2018
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:28
 
 
