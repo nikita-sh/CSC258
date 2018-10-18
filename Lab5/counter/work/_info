@@ -1,0 +1,97 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/h/u5/c7/05/shumeik2/CSC258/Lab5/counter
+vcounter
+Z1 !s110 1539884638
+!i10b 1
+!s100 A1I;ZUI8TA^:5gS`z=<]72
+IFj1EKVf>n?d>mIo0n_<DU2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1539884600
+Z4 8counter.v
+Z5 Fcounter.v
+L0 2
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1539884638.000000
+Z8 !s107 counter.v|
+Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|counter.v|
+!i113 1
+Z10 o-timescale 1ns/1ns
+Z11 tCvgOpt 0
+vgenCounter
+R1
+!i10b 1
+!s100 jKgcU8XYo::eGB5]j``aC2
+I9i^@0e>[C5VgUhFB1;Ad:2
+R2
+R0
+R3
+R4
+R5
+L0 18
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+ngen@counter
+vsevenSegDecoder
+R1
+!i10b 1
+!s100 JLbKkNHI4oZ7:FSUJ7XaQ1
+I6MofXa;lFK_2MZV]`FX8S0
+R2
+R0
+R3
+R4
+R5
+L0 56
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nseven@seg@decoder
+vtFlipFlop
+R1
+!i10b 1
+!s100 G1R6iS`GF6VJa4YdZN0DU1
+IESHo11j2k3zWlh=G8=UnK0
+R2
+R0
+R3
+R4
+R5
+L0 42
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nt@flip@flop

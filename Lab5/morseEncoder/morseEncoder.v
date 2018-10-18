@@ -1,10 +1,14 @@
 module morseEncoder(SW, KEY, CLOCK_50, LEDR);
-	input [2:0] SW;
-	input [1:0] KEY;
-	input CLOCK_50;
-	output [0:0] LEDR;
+	input [2:0] SW; // Letter inputs
+	input [1:0] KEY; // enable and reset inputs
+	input CLOCK_50; // clock
+	output [0:0] LEDR; // output LED
+
+	wire out;
 	
-	genMorseEncoder gme(.enable(KEY[1]), .letter(SW[2:0]), .reset(KEY[0]), .clk(CLOCK_50), .out(LEDR[0]));
+	genMorseEncoder gme(.enable(KEY[1]), .letter(SW[2:0]), .reset(KEY[0]), .clk(CLOCK_50), .out(out));
+
+	assign LEDR[0] = out;
 endmodule 
 
 module genMorseEncoder(enable, letter, reset, clk, out);
@@ -16,33 +20,30 @@ module genMorseEncoder(enable, letter, reset, clk, out);
 	
 	lookUpTable lut(.in(letter), .out(morse));
 	
-	wire [27:0] rd;
+	wire [25:0] rd;
 	
-	rateDivider rate(.enable(enable), .load({3'b000, 25'b1011111010111100000111111}), .clk(clk), .reset_n(reset), .q(rd));
+	rateDivider rate(.load(25'b1011111010111100000111111), .clk(clk), .reset_n(reset), .q(rd));
 	
 	wire shiftEnable;
 	assign shiftEnable = (rd == 0) ? 1 : 0;
 	
-	subShifter(.LoadVal(morse), .in(1'b0), .Load_n(enable), .clk(shiftEnable), .shift(1'b1), .reset_n(reset), .Q(out));
+	subShifter shift(.LoadVal(morse), .in(1'b0), .Load_n(enable), .clk(shiftEnable), .shift(1'b1), .reset_n(reset), .Q(out));
 endmodule
 
 //Rate Divider for morse timing
-module rateDivider(enable, load, clk, reset_n, q);
-	input enable, clk, reset_n;
-	input [27:0] load;
-	output reg [27:0] q;
+module rateDivider(load, clk, reset_n, q);
+	input clk, reset_n;
+	input [25:0] load;
+	output reg [25:0] q;
 	
 	always @(posedge clk)
 	begin
 		if (reset_n == 1'b0)
+			q <= 0;
+		else if (q == 0)
 			q <= load;
-		else if (enable == 1'b1)
-			begin
-				if (q == 0)
-					q <= load;
-				else
-					q <= q - 1'b1;
-			end
+		else
+			q <= q - 1'b1;
 	end
 endmodule
 
