@@ -21,25 +21,25 @@ module genCounter(enable, clk, clear_b, Q);
 	
 	wire [6:0] w;
 	tFlipFlop t7(.t(enable), .clock(clk), .clear(clear_b), .q(Q[7]));
-	assign w[6] = enable && Q[7];
+	assign w[6] = enable & Q[7];
 	
 	tFlipFlop t6(.t(w[6]), .clock(clk), .clear(clear_b), .q(Q[6]));
-	assign w[5] = w[6] && Q[6];
+	assign w[5] = w[6] & Q[6];
 	
 	tFlipFlop t5(.t(w[5]), .clock(clk), .clear(clear_b), .q(Q[5]));
-	assign w[4] = w[5] && Q[5];
+	assign w[4] = w[5] & Q[5];
 	
 	tFlipFlop t4(.t(w[4]), .clock(clk), .clear(clear_b), .q(Q[4]));
-	assign w[3] = w[4] && Q[4];
+	assign w[3] = w[4] & Q[4];
 	
 	tFlipFlop t3(.t(w[3]), .clock(clk), .clear(clear_b), .q(Q[3]));
-	assign w[2] = w[3] && Q[3];
+	assign w[2] = w[3] & Q[3];
 	
 	tFlipFlop t2(.t(w[2]), .clock(clk), .clear(clear_b), .q(Q[2]));
-	assign w[1] = w[2] && Q[2];
+	assign w[1] = w[2] & Q[2];
 	
 	tFlipFlop t1(.t(w[1]), .clock(clk), .clear(clear_b), .q(Q[1]));
-	assign w[0] = w[1] && Q[1];
+	assign w[0] = w[1] & Q[1];
 	
 	tFlipFlop t0(.t(w[0]), .clock(clk), .clear(clear_b), .q(Q[0]));
 endmodule 
