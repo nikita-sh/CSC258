@@ -1,0 +1,190 @@
+|counter
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+KEY[0] => KEY[0].IN1
+HEX0 <= sevenSegDecoder:s1.HEX0
+HEX1 <= sevenSegDecoder:s0.HEX0
+
+
+|counter|genCounter:c
+enable => enable.IN1
+clk => clk.IN8
+clear_b => clear_b.IN8
+Q[0] <= tFlipFlop:t0.q
+Q[1] <= tFlipFlop:t1.q
+Q[2] <= tFlipFlop:t2.q
+Q[3] <= tFlipFlop:t3.q
+Q[4] <= tFlipFlop:t4.q
+Q[5] <= tFlipFlop:t5.q
+Q[6] <= tFlipFlop:t6.q
+Q[7] <= tFlipFlop:t7.q
+
+
+|counter|genCounter:c|tFlipFlop:t7
+t => q~reg0.DATAIN
+clock => q~reg0.CLK
+clear => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|counter|genCounter:c|tFlipFlop:t6
+t => q~reg0.DATAIN
+clock => q~reg0.CLK
+clear => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|counter|genCounter:c|tFlipFlop:t5
+t => q~reg0.DATAIN
+clock => q~reg0.CLK
+clear => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|counter|genCounter:c|tFlipFlop:t4
+t => q~reg0.DATAIN
+clock => q~reg0.CLK
+clear => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|counter|genCounter:c|tFlipFlop:t3
+t => q~reg0.DATAIN
+clock => q~reg0.CLK
+clear => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|counter|genCounter:c|tFlipFlop:t2
+t => q~reg0.DATAIN
+clock => q~reg0.CLK
+clear => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|counter|genCounter:c|tFlipFlop:t1
+t => q~reg0.DATAIN
+clock => q~reg0.CLK
+clear => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|counter|genCounter:c|tFlipFlop:t0
+t => q~reg0.DATAIN
+clock => q~reg0.CLK
+clear => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|counter|sevenSegDecoder:s0
+SW[0] => HEX0.IN0
+SW[0] => HEX0.IN0
+SW[0] => HEX0.IN0
+SW[0] => HEX0.IN0
+SW[0] => HEX0.IN0
+SW[0] => HEX0.IN0
+SW[1] => HEX0.IN0
+SW[1] => HEX0.IN1
+SW[1] => HEX0.IN1
+SW[1] => HEX0.IN1
+SW[1] => HEX0.IN0
+SW[1] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => ~NO_FANOUT~
+HEX0[0] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[1] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[2] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[3] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[4] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[5] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[6] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|counter|sevenSegDecoder:s1
+SW[0] => HEX0.IN0
+SW[0] => HEX0.IN0
+SW[0] => HEX0.IN0
+SW[0] => HEX0.IN0
+SW[0] => HEX0.IN0
+SW[0] => HEX0.IN0
+SW[1] => HEX0.IN0
+SW[1] => HEX0.IN1
+SW[1] => HEX0.IN1
+SW[1] => HEX0.IN1
+SW[1] => HEX0.IN0
+SW[1] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[2] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[3] => HEX0.IN1
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => ~NO_FANOUT~
+HEX0[0] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[1] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[2] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[3] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[4] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[5] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[6] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+
+
