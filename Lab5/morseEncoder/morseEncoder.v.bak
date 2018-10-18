@@ -1,0 +1,5 @@
+module morseEncoder();
+endmodule 
+
+module genMorseEncoder();
+endmodule 
