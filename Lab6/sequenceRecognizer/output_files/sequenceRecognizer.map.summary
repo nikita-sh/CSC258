@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Mon Oct 29 20:07:22 2018
+Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+Revision Name : sequenceRecognizer
+Top-level Entity Name : sequenceRecognizer
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 7
+Total pins : 24
+Total virtual pins : 0
+Total block memory bits : 0
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0
