@@ -119,8 +119,8 @@ module control(
                 S_LOAD_X_WAIT   = 4'd7,
                 S_CYCLE_0       = 4'd8,
                 S_CYCLE_1       = 4'd9,
-                S_CYCLE_2       = 4'd10;
-					 S_CYCLE_3		  = 4'd11;
+                S_CYCLE_2       = 4'd10,
+					 S_CYCLE_3		  = 4'd11,
 					 S_CYCLE_4		  = 4'd12;
     
     // Next state logic aka our state table
@@ -180,10 +180,11 @@ module control(
 					alu_op = 1'b1; //multiply
 				end
 				S_CYCLE_1: begin //do A <- A * X
+					ld_b = 1'b0;
 					ld_alu_out = 1'b1;
 					ld_a = 1'b1; //store result to register A
 					alu_select_a = 2'b00; //select register A
-					alu_select_b = 2'11; //select register X
+					alu_select_b = 2'b11; //select register X
 					alu_op = 1'b1; // multiply
 				end
 				S_CYCLE_2: begin //do A <- A * X (gives us A * X * X)
@@ -191,7 +192,7 @@ module control(
 					ld_a = 1'b1; //store result to register A
 					alu_select_a = 2'b00; //select register A
 					alu_select_b = 2'b11; //select register X
-					alu_op = 1'b1: //multiply
+					alu_op = 1'b1; //multiply
 				end
 				S_CYCLE_3: begin //do B <- A + B (gives us AX^2 + BX)
 					ld_alu_out = 1'b1;
@@ -201,6 +202,7 @@ module control(
 					alu_op = 1'b0; //add
 				end
 				S_CYCLE_4: begin //do A + C (gives us AX^2 + BX + C), store result in result register
+					ld_a = 1'b0;
 					ld_r = 1'b1; //store result in result register
 					alu_select_a = 2'b00; //select register A
 					alu_select_b = 2'b10; //select register C

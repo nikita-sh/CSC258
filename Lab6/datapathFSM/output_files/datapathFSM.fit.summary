@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Oct 29 20:50:10 2018
+Fitter Status : Successful - Wed Oct 31 13:20:55 2018
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : datapathFSM
 Top-level Entity Name : datapathFSM
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 26 / 32,070 ( < 1 % )
-Total registers : 34
+Logic utilization (in ALMs) : 42 / 32,070 ( < 1 % )
+Total registers : 53
 Total pins : 39 / 457 ( 9 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )

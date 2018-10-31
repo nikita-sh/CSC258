@@ -1,5 +1,5 @@
 Analysis & Synthesis report for datapathFSM
-Mon Oct 29 20:49:38 2018
+Wed Oct 31 13:20:17 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -47,13 +47,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Oct 29 20:49:38 2018       ;
+; Analysis & Synthesis Status     ; Successful - Wed Oct 31 13:20:17 2018       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; datapathFSM                                 ;
 ; Top-level Entity Name           ; datapathFSM                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 34                                          ;
+; Total registers                 ; 53                                          ;
 ; Total pins                      ; 39                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -185,25 +185,25 @@ agreement for further details.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 27           ;
+; Estimate of Logic utilization (ALMs needed) ; 45           ;
 ;                                             ;              ;
-; Combinational ALUT usage for logic          ; 43           ;
+; Combinational ALUT usage for logic          ; 75           ;
 ;     -- 7 input functions                    ; 0            ;
-;     -- 6 input functions                    ; 0            ;
-;     -- 5 input functions                    ; 0            ;
-;     -- 4 input functions                    ; 22           ;
-;     -- <=3 input functions                  ; 21           ;
+;     -- 6 input functions                    ; 8            ;
+;     -- 5 input functions                    ; 9            ;
+;     -- 4 input functions                    ; 32           ;
+;     -- <=3 input functions                  ; 26           ;
 ;                                             ;              ;
-; Dedicated logic registers                   ; 34           ;
+; Dedicated logic registers                   ; 53           ;
 ;                                             ;              ;
 ; I/O pins                                    ; 39           ;
 ;                                             ;              ;
 ; Total DSP Blocks                            ; 1            ;
 ;                                             ;              ;
 ; Maximum fan-out node                        ; KEY[0]~input ;
-; Maximum fan-out                             ; 37           ;
-; Total fan-out                               ; 380          ;
-; Average fan-out                             ; 2.44         ;
+; Maximum fan-out                             ; 58           ;
+; Total fan-out                               ; 562          ;
+; Average fan-out                             ; 2.71         ;
 +---------------------------------------------+--------------+
 
 
@@ -212,12 +212,12 @@ agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name               ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+-------------+--------------+
-; |datapathFSM               ; 43 (0)              ; 34 (0)                    ; 0                 ; 1          ; 39   ; 0            ; |datapathFSM                      ; datapathFSM ; work         ;
+; |datapathFSM               ; 75 (0)              ; 53 (0)                    ; 0                 ; 1          ; 39   ; 0            ; |datapathFSM                      ; datapathFSM ; work         ;
 ;    |hex_decoder:H0|        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapathFSM|hex_decoder:H0       ; hex_decoder ; work         ;
 ;    |hex_decoder:H1|        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapathFSM|hex_decoder:H1       ; hex_decoder ; work         ;
-;    |part2:u0|              ; 29 (0)              ; 34 (0)                    ; 0                 ; 1          ; 0    ; 0            ; |datapathFSM|part2:u0             ; part2       ; work         ;
-;       |control:C0|         ; 10 (10)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |datapathFSM|part2:u0|control:C0  ; control     ; work         ;
-;       |datapath:D0|        ; 19 (19)             ; 24 (24)                   ; 0                 ; 1          ; 0    ; 0            ; |datapathFSM|part2:u0|datapath:D0 ; datapath    ; work         ;
+;    |part2:u0|              ; 61 (0)              ; 53 (0)                    ; 0                 ; 1          ; 0    ; 0            ; |datapathFSM|part2:u0             ; part2       ; work         ;
+;       |control:C0|         ; 16 (16)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |datapathFSM|part2:u0|control:C0  ; control     ; work         ;
+;       |datapath:D0|        ; 45 (45)             ; 40 (40)                   ; 0                 ; 1          ; 0    ; 0            ; |datapathFSM|part2:u0|datapath:D0 ; datapath    ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -235,37 +235,38 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |datapathFSM|part2:u0|control:C0|current_state                                                                                                                                                                                                                                              ;
-+-----------------------------+-------------------------+-------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+
-; Name                        ; current_state.S_CYCLE_1 ; current_state.S_CYCLE_0 ; current_state.S_LOAD_X_WAIT ; current_state.S_LOAD_X ; current_state.S_LOAD_C_WAIT ; current_state.S_LOAD_C ; current_state.S_LOAD_B_WAIT ; current_state.S_LOAD_B ; current_state.S_LOAD_A_WAIT ; current_state.S_LOAD_A ;
-+-----------------------------+-------------------------+-------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+
-; current_state.S_LOAD_A      ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ;
-; current_state.S_LOAD_A_WAIT ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 1                           ; 1                      ;
-; current_state.S_LOAD_B      ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ; 0                           ; 1                      ;
-; current_state.S_LOAD_B_WAIT ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 1                           ; 0                      ; 0                           ; 1                      ;
-; current_state.S_LOAD_C      ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 1                      ; 0                           ; 0                      ; 0                           ; 1                      ;
-; current_state.S_LOAD_C_WAIT ; 0                       ; 0                       ; 0                           ; 0                      ; 1                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
-; current_state.S_LOAD_X      ; 0                       ; 0                       ; 0                           ; 1                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
-; current_state.S_LOAD_X_WAIT ; 0                       ; 0                       ; 1                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
-; current_state.S_CYCLE_0     ; 0                       ; 1                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
-; current_state.S_CYCLE_1     ; 1                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
-+-----------------------------+-------------------------+-------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |datapathFSM|part2:u0|control:C0|current_state                                                                                                                                                                                                                                                                                                                            ;
++-----------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+
+; Name                        ; current_state.S_CYCLE_4 ; current_state.S_CYCLE_3 ; current_state.S_CYCLE_2 ; current_state.S_CYCLE_1 ; current_state.S_CYCLE_0 ; current_state.S_LOAD_X_WAIT ; current_state.S_LOAD_X ; current_state.S_LOAD_C_WAIT ; current_state.S_LOAD_C ; current_state.S_LOAD_B_WAIT ; current_state.S_LOAD_B ; current_state.S_LOAD_A_WAIT ; current_state.S_LOAD_A ;
++-----------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+
+; current_state.S_LOAD_A      ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ;
+; current_state.S_LOAD_A_WAIT ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 1                           ; 1                      ;
+; current_state.S_LOAD_B      ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ; 0                           ; 1                      ;
+; current_state.S_LOAD_B_WAIT ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 1                           ; 0                      ; 0                           ; 1                      ;
+; current_state.S_LOAD_C      ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 1                      ; 0                           ; 0                      ; 0                           ; 1                      ;
+; current_state.S_LOAD_C_WAIT ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                      ; 1                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
+; current_state.S_LOAD_X      ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 1                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
+; current_state.S_LOAD_X_WAIT ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 1                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
+; current_state.S_CYCLE_0     ; 0                       ; 0                       ; 0                       ; 0                       ; 1                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
+; current_state.S_CYCLE_1     ; 0                       ; 0                       ; 0                       ; 1                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
+; current_state.S_CYCLE_2     ; 0                       ; 0                       ; 1                       ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
+; current_state.S_CYCLE_3     ; 0                       ; 1                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
+; current_state.S_CYCLE_4     ; 1                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 0                      ; 0                           ; 1                      ;
++-----------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+-----------------------------+------------------------+
 
 
-+-------------------------------------------------------------+
-; Registers Removed During Synthesis                          ;
-+----------------------------------------+--------------------+
-; Register name                          ; Reason for Removal ;
-+----------------------------------------+--------------------+
-; part2:u0|datapath:D0|x[0..7]           ; Lost fanout        ;
-; part2:u0|datapath:D0|b[0..7]           ; Lost fanout        ;
-; part2:u0|control:C0|current_state~2    ; Lost fanout        ;
-; part2:u0|control:C0|current_state~3    ; Lost fanout        ;
-; part2:u0|control:C0|current_state~4    ; Lost fanout        ;
-; part2:u0|control:C0|current_state~5    ; Lost fanout        ;
-; Total Number of Removed Registers = 20 ;                    ;
-+----------------------------------------+--------------------+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; part2:u0|control:C0|current_state~2   ; Lost fanout        ;
+; part2:u0|control:C0|current_state~3   ; Lost fanout        ;
+; part2:u0|control:C0|current_state~4   ; Lost fanout        ;
+; part2:u0|control:C0|current_state~5   ; Lost fanout        ;
+; Total Number of Removed Registers = 4 ;                    ;
++---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -273,12 +274,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 34    ;
-; Number of registers using Synchronous Clear  ; 24    ;
-; Number of registers using Synchronous Load   ; 16    ;
+; Total registers                              ; 53    ;
+; Number of registers using Synchronous Clear  ; 40    ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 24    ;
+; Number of registers using Clock Enable       ; 40    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -288,9 +289,12 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |datapathFSM|part2:u0|datapath:D0|c[0]           ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |datapathFSM|part2:u0|datapath:D0|data_result[5] ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |datapathFSM|part2:u0|datapath:D0|a[7]           ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |datapathFSM|part2:u0|datapath:D0|c[2]           ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |datapathFSM|part2:u0|datapath:D0|x[6]           ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |datapathFSM|part2:u0|datapath:D0|data_result[3] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |datapathFSM|part2:u0|datapath:D0|a[0]           ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |datapathFSM|part2:u0|datapath:D0|b[7]           ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |datapathFSM|part2:u0|datapath:D0|Mux15          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
 
 
@@ -299,24 +303,25 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 34                          ;
-;     ENA SCLR          ; 8                           ;
-;     ENA SCLR SLD      ; 16                          ;
-;     plain             ; 10                          ;
-; arriav_lcell_comb     ; 46                          ;
+; arriav_ff             ; 53                          ;
+;     ENA SCLR          ; 40                          ;
+;     plain             ; 13                          ;
+; arriav_lcell_comb     ; 78                          ;
 ;     arith             ; 8                           ;
-;         3 data inputs ; 8                           ;
-;     normal            ; 38                          ;
+;         4 data inputs ; 8                           ;
+;     normal            ; 70                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 10                          ;
-;         4 data inputs ; 22                          ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 19                          ;
+;         4 data inputs ; 24                          ;
+;         5 data inputs ; 9                           ;
+;         6 data inputs ; 8                           ;
 ; arriav_mac            ; 1                           ;
 ; boundary_port         ; 39                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.08                        ;
+; Max LUT depth         ; 4.70                        ;
+; Average LUT depth     ; 2.56                        ;
 +-----------------------+-----------------------------+
 
 
@@ -325,7 +330,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -335,7 +340,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Oct 29 20:49:24 2018
+    Info: Processing started: Wed Oct 31 13:20:02 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off datapathFSM -c datapathFSM
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -343,20 +348,20 @@ Info (12021): Found 5 design units, including 5 entities, in source file datapat
     Info (12023): Found entity 1: datapathFSM File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 9
     Info (12023): Found entity 2: part2 File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 45
     Info (12023): Found entity 3: control File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 99
-    Info (12023): Found entity 4: datapath File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 196
-    Info (12023): Found entity 5: hex_decoder File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 293
+    Info (12023): Found entity 4: datapath File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 225
+    Info (12023): Found entity 5: hex_decoder File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 322
 Info (12127): Elaborating entity "datapathFSM" for the top level hierarchy
 Info (12128): Elaborating entity "part2" for hierarchy "part2:u0" File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 29
 Info (12128): Elaborating entity "control" for hierarchy "part2:u0|control:C0" File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 75
-Warning (10270): Verilog HDL Case Statement warning at datapathFSM.v(157): incomplete case statement has no default case item File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 157
-Info (10264): Verilog HDL Case Statement information at datapathFSM.v(157): all case item expressions in this case statement are onehot File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 157
+Warning (10270): Verilog HDL Case Statement warning at datapathFSM.v(162): incomplete case statement has no default case item File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 162
+Info (10264): Verilog HDL Case Statement information at datapathFSM.v(162): all case item expressions in this case statement are onehot File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 162
 Info (12128): Elaborating entity "datapath" for hierarchy "part2:u0|datapath:D0" File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 94
 Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:H0" File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 36
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 13
     Warning (13410): Pin "LEDR[9]" is stuck at GND File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 13
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 20 registers lost all their fanouts during netlist optimizations.
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 4 input pin(s) that do not drive logic
@@ -364,15 +369,15 @@ Warning (21074): Design contains 4 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[9]" File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 10
     Warning (15610): No output dependent on input pin "KEY[2]" File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 11
     Warning (15610): No output dependent on input pin "KEY[3]" File: /h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM/datapathFSM.v Line: 11
-Info (21057): Implemented 99 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 147 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 24 output pins
-    Info (21061): Implemented 59 logic cells
+    Info (21061): Implemented 107 logic cells
     Info (21062): Implemented 1 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 1045 megabytes
-    Info: Processing ended: Mon Oct 29 20:49:38 2018
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:19
+    Info: Peak virtual memory: 1047 megabytes
+    Info: Processing ended: Wed Oct 31 13:20:17 2018
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:21
 
 

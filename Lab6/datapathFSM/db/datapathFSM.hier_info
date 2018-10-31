@@ -74,6 +74,9 @@ resetn => current_state.OUTPUTSELECT
 resetn => current_state.OUTPUTSELECT
 resetn => current_state.OUTPUTSELECT
 resetn => current_state.OUTPUTSELECT
+resetn => current_state.OUTPUTSELECT
+resetn => current_state.OUTPUTSELECT
+resetn => current_state.OUTPUTSELECT
 go => Selector1.IN2
 go => Selector3.IN1
 go => Selector5.IN1
@@ -83,17 +86,17 @@ go => Selector2.IN1
 go => Selector4.IN1
 go => Selector6.IN1
 go => next_state.S_CYCLE_0.DATAB
-ld_a <= ld_a.DB_MAX_OUTPUT_PORT_TYPE
+ld_a <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
 ld_b <= ld_b.DB_MAX_OUTPUT_PORT_TYPE
 ld_c <= ld_c.DB_MAX_OUTPUT_PORT_TYPE
 ld_x <= ld_x.DB_MAX_OUTPUT_PORT_TYPE
 ld_r <= ld_r.DB_MAX_OUTPUT_PORT_TYPE
-ld_alu_out <= alu_op.DB_MAX_OUTPUT_PORT_TYPE
-alu_select_a[0] <= <GND>
+ld_alu_out <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+alu_select_a[0] <= alu_select_a[0].DB_MAX_OUTPUT_PORT_TYPE
 alu_select_a[1] <= <GND>
-alu_select_b[0] <= <GND>
-alu_select_b[1] <= ld_r.DB_MAX_OUTPUT_PORT_TYPE
-alu_op <= alu_op.DB_MAX_OUTPUT_PORT_TYPE
+alu_select_b[0] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+alu_select_b[1] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+alu_op <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |datapathFSM|part2:u0|datapath:D0
