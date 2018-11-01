@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/h/u5/c7/05/shumeik2/CSC258/Lab6/datapathFSM
 vcontrol
-Z1 !s110 1541010377
+Z1 !s110 1541100648
 !i10b 1
 !s100 LD5gHj8Yj`VAWAb;BfNOP1
 IfRge09`ZQC;PP6ANB7^dg2
@@ -23,7 +23,7 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1541010376.000000
+Z7 !s108 1541100647.000000
 Z8 !s107 datapathFSM.v|
 Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|datapathFSM.v|
 !i113 1
